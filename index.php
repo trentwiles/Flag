@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 header("X-Powered-By: Riverside Rocks");
 header("X-Server: kestral (v2.2)");
 header("X-Content-Type-Options: nosniff");

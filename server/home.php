@@ -1,2 +1,2 @@
 <?php 
-echo $_ENV["E"];
+include "header.php";
