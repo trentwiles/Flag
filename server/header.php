@@ -112,13 +112,5 @@ if(isset($title) && isset($desc) && isset($thumb) && isset($route))
         </div>
       </div>
     </nav>
-
-    <!-- Content wrapper -->
     <div class="content-wrapper">
-      ...
-    </div>
-  </div>
-
-  <!-- Requires halfmoon.js for the dropdowns -->
-  <script src="path/to/halfmoon.js"></script>
-</body>
+    <center>
