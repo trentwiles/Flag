@@ -17,3 +17,5 @@ $router = new \Bramus\Router\Router();
 $router->get('/wow', function() {
     require "server/home.php";
 });
+
+$router->run();
