@@ -42,7 +42,7 @@ if(isset($title) && isset($desc) && isset($thumb) && isset($route))
 <meta property="og:type" content="website">
 <meta property="twitter:card" content="summary_large_image">
 
-<body>
+<body onload="halfmoon.toggleDarkMode()">
   <div class="page-wrapper with-navbar">
     <nav class="navbar">
     <!--
