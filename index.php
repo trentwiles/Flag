@@ -15,5 +15,5 @@ $dotenv->load();
 $router = new \Bramus\Router\Router();
 
 $router->get('/', function() {
-    include "server/home.php";
+    require "server/home.php";
 });
