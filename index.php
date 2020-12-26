@@ -14,6 +14,6 @@ $dotenv->load();
 
 $router = new \Bramus\Router\Router();
 
-$router->get('/', function() {
+$router->get('/wow', function() {
     require "server/home.php";
 });
