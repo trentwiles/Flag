@@ -17,6 +17,4 @@ $router = new \Bramus\Router\Router();
 
 $router->get('/', function() {
     include "server/home.php";
-    $out = ob_get_clean();
-    die($out);
 });
