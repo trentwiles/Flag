@@ -1,0 +1,14 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . index.php [L]
+
+RedirectMatch 403 /\.git
+
+RewriteRule /\.git / [F,L]
+RewriteRule ^auth\.json$ / [F,L]
+RewriteRule ^composer\.(lock|json)$ / [F,L]
+RewriteRule ^config.php$ / [F,L]
+RewriteRule ^flarum$ / [F,L]
+RewriteRule ^storage/(.*)?$ / [F,L]
+RewriteRule ^vendor/(.*)?$ / [F,L]
