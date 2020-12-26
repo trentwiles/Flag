@@ -45,10 +45,14 @@ if(isset($title) && isset($desc) && isset($thumb) && isset($route))
 <body>
   <div class="page-wrapper with-navbar">
     <nav class="navbar">
+    <!--
       <div class="navbar-content">
         <button class="btn btn-action" type="button">
           <i class="fa fa-bars" aria-hidden="true"></i>
-          <span class="sr-only">Menu</span> <!-- sr-only = show only on screen readers -->
+          <span class="sr-only">Menu</span>
+          
+          -->
+
         </button>
       </div>
       <a href="/" class="navbar-brand">
