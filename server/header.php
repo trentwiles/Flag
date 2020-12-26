@@ -72,7 +72,7 @@ if(isset($title) && isset($desc) && isset($thumb) && isset($route))
       if(!isset($_SESSION["username"]))
       {
           echo "<form class='form-inline d-none d-md-flex ml-auto' action='/accounts/create' method='get'>";
-          echo '<input type="text" class="form-control" placeholder="Create a username" required="required">';
+          echo '<input type="text" name="username" class="form-control" placeholder="Create a username" required="required">';
           echo '<button class="btn btn-primary" type="submit">Sign up</button>';
           echo '</form>';
       }else{
