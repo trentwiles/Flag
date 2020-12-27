@@ -25,7 +25,7 @@ if(isset($_POST["bio"]))
     $stmt->execute();
 }
 
-if(issset($_POST["pfp"]))
+if(isset($_POST["pfp"]))
 {
     $storage = new \Upload\Storage\FileSystem('/var/www/drive1/cdn/profiles/');
         $file = new \Upload\File('pfp', $storage);
