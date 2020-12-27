@@ -24,3 +24,40 @@ if(isset($_POST["bio"]))
     $stmt->bind_param("ss", $new_bio, $_SESSION["username"]);
     $stmt->execute();
 }
+
+if(issset($_POST["pfp"]))
+{
+    $storage = new \Upload\Storage\FileSystem('/var/www/drive1/cdn/profiles/');
+        $file = new \Upload\File('pfp', $storage);
+
+        $names = json_decode(file_get_contents("https://friendlywords.eddiestech.co.uk/.netlify/functions/words/objects"), true);
+
+
+        $new_filename = $names[0] . "-" . $names[1] . "-" . $names[2];
+        $file->setName($new_filename);
+
+        $file->addValidations(array(
+
+            new \Upload\Validation\Mimetype(array('image/png', 'image/jpg', 'image/jpeg')),
+
+            new \Upload\Validation\Size('5M')
+                ));
+
+                // Access data about the file that has been uploaded
+                $data = array(
+                    'name'       => $file->getNameWithExtension(),
+                    'extension'  => $file->getExtension(),
+                    'mime'       => $file->getMimetype(),
+                    'size'       => $file->getSize(),
+                    'md5'        => $file->getMd5(),
+                    'dimensions' => $file->getDimensions()
+                );
+
+                // Try to upload file
+                try {
+                    $file->upload();
+                } catch (\Exception $e) {
+                    // Fail!
+                    $errors = $file->getErrors();
+                }
+            }
