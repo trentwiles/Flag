@@ -82,6 +82,10 @@ $router->get('/upload', function() {
     require "server/upload.php";
 });
 
+$router->post('/upload', function() {
+    require "server/upload-service.php";
+});
+
 $router->mount('/account', function () use ($router) {
     $router->get('/', function () {
         die(header("Location: /account/home"));
