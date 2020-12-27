@@ -56,6 +56,11 @@ if(issset($_POST["pfp"]))
                 // Try to upload file
                 try {
                     $file->upload();
+                    $sql = "UPDATE `users` SET `pfp`=? WHERE username=?";
+                    $stmt = $conn->prepare($sql); 
+                    $new_photo = "https://cdn.riverside.rocks/profiles/" . $file->getNameWithExtension();
+                    $stmt->bind_param("ss", $new_photo, $_SESSION["username"]);
+                    $stmt->execute();
                 } catch (\Exception $e) {
                     // Fail!
                     $errors = $file->getErrors();
