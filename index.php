@@ -105,6 +105,9 @@ $router->mount('/account', function () use ($router) {
     $router->get('/home', function() {
         require "server/account.php";
     });
+    $router->get('/settings', function() {
+        require "server/settings.php";
+    });
     $router->get('/signout', function() {
         session_start();
         session_unset();
