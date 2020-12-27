@@ -69,7 +69,7 @@ if(isset($_SESSION["username"]))
                     $frame = $video->frame(FFMpeg\Coordinate\TimeCode::fromSeconds($sec));
                     $frame->save($thumbnail);
                     
-                    $v_thumb = $thumbnail;
+                    $v_thumb = "https://cdn.riverside.rocks/flag/" . $file->getNameWithExtension() . '.png';
 
                     $servername = $_ENV['MYSQL_SERVER'];
                     $username = $_ENV["MYSQL_USERNAME"];
