@@ -25,8 +25,7 @@ if(isset($_POST["bio"]))
     $stmt->execute();
 }
 
-if(isset($_POST["foo"]))
-{
+
     $storage = new \Upload\Storage\FileSystem('/var/www/drive1/cdn/profiles/');
         $file = new \Upload\File('foo', $storage);
 
@@ -65,4 +64,4 @@ if(isset($_POST["foo"]))
                     // Fail!
                     $errors = $file->getErrors();
                 }
-            }
+            
