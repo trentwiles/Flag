@@ -35,7 +35,10 @@ while ($row = $result->fetch_assoc()) {
     controls
     preload="auto"
     <?php echo "poster='" . $thumb . "'"; ?>
-    data-setup='{}'>
+    data-setup='{}'
+    width="720"
+    height="480"
+    >
   <source <?php echo "src='" . $url . "'"; ?> type="video/mp4"></source>
   <p class="vjs-no-js">
     To view this video please enable JavaScript, and consider upgrading to a
