@@ -23,7 +23,7 @@ $stmt->bind_param("s", $val);
 $stmt->execute();
 $result = $stmt->get_result();
 while ($row = $result->fetch_assoc()) {
-    if($row["username"] == "")
+    if($row["username"] !== "")
     {
         die(header("Location: /login/?username=${val}"));
     }
