@@ -39,7 +39,7 @@ while ($row = $result->fetch_assoc()) {
 
 <hr>
 
-<form method="post" class="w-400 mw-full">
+<form method="post" class="w-400 mw-full" enctype="multipart/form-data">
   <div class="form-group">
     <label for="foo" class="required">Display picture</label>
     <div class="custom-file">
