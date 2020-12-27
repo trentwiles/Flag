@@ -36,7 +36,7 @@ while ($row = $result->fetch_assoc()) {
     preload="auto"
     <?php echo "poster='" . $thumb . "'"; ?>
     data-setup='{}'>
-  <source <?php echo "src=' . " . $url . "'"; ?> type="video/mp4"></source>
+  <source <?php echo "src='" . $url . "'"; ?> type="video/mp4"></source>
   <p class="vjs-no-js">
     To view this video please enable JavaScript, and consider upgrading to a
     web browser that
