@@ -8,6 +8,27 @@ if(isset($_SESSION["username"]))
 
 $val = htmlspecialchars($_GET["username"]);
 
+$servername = $_ENV['MYSQL_SERVER'];
+$username = $_ENV["MYSQL_USERNAME"];
+$password = $_ENV["MYSQL_PASSWORD"];
+$dbname = $_ENV["MYSQL_DATABASE"];
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+$sql = "SELECT * FROM users WHERE `username`=?";
+$stmt = $conn->prepare($sql); 
+$stmt->bind_param("s", $val);
+$stmt->execute();
+$result = $stmt->get_result();
+while ($row = $result->fetch_assoc()) {
+    if($row["username"] == "")
+    {
+        die(header("Location: /login/?username=${val}"));
+    }
+}
+
 ?>
 <script src="/frontend/username.js"></script>
 <script src="https://www.hCaptcha.com/1/api.js" async defer></script>
