@@ -18,7 +18,7 @@ $stmt->execute();
 $result = $stmt->get_result();
 $count = 0;
 
-echo '<div class="container-fluid"><div class="row">';
+echo '<br><div class="container-fluid"><div class="row">';
 
 while ($row = $result->fetch_assoc()) {
     $count++;
