@@ -82,4 +82,4 @@ while ($row = $result->fetch_assoc()) {
 <div class="desc" width="60%">
     <?php echo $desc; ?>
 </div>
-<?php echo "<h2><img src='${pfp}' class='img-fluid rounded-circle' alt='rounded circle image' width='75px' height='75px'><a href='/user/${user}'>${user}</a></h2>"; ?>
+<?php echo "<a href='/user/${user}'><img src='${pfp}' class='img-fluid rounded-circle' alt='rounded circle image' width='75px' height='75px'><br><h2>${user}</h2></a>"; ?>
