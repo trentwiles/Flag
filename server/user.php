@@ -32,13 +32,13 @@ if(!isset($use))
 <img <?php echo "src='" . $photo ."'"; ?> class="img-fluid rounded-circle" alt="rounded circle image" width="100px" height="100px" />
 <div class="content">
   <h2 class="content-title">
-    <?php echo "<p style='font-size: 22px;'>${use}</p>"; ?>
+    <?php echo "h3>${use}</h3>"; ?>
   </h2>
   <p>
   <?php echo $describe; ?>
   </p>
 </div>
-<h3>Videos</h3>
+<h4>Videos</h4>
 <?php
 $sql = "SELECT * FROM videos WHERE v_uploader=?";
 $stmt = $conn->prepare($sql); 
