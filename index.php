@@ -69,6 +69,13 @@ $router->mount('/account', function () use ($router) {
     $router->get('/home', function() {
         require "server/account.php";
     });
+    $router->get('/signout', function() {
+        session_start();
+        session_unset();
+        session_destroy();
+        header("Location: /");
+        die();
+    });
 });
 
 $router->run();
