@@ -50,6 +50,14 @@ $router->get('/signup', function() {
     require "server/signup.php";
 });
 
+$router->get('/login', function() {
+    $title = "Sign in";
+    $desc = "Sign in and start uploading videos to share";
+    $thumb = "https://cdn.riverside.rocks/a/begonia-botany-skipjack.png";
+    $route = "login";
+    require "server/signup.php";
+});
+
 $router->post('/signup', function() {
     require "server/signup-service.php";
 });
