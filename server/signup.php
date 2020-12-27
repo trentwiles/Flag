@@ -22,6 +22,10 @@ $val = htmlspecialchars($_GET["username"]);
     </div>
   </div>
   <div class="form-group">
+    <label for="email" class="required">Email</label>
+    <input type="text" name="email" class="form-control" id="email" placeholder="Email" required="required">
+  </div>
+  <div class="form-group">
     <label for="password" class="required">Password</label>
     <input type="password" name="password" class="form-control" id="password" placeholder="Password" required="required">
   </div>

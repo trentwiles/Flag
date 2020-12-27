@@ -37,12 +37,24 @@ if(isset($_POST["username"]) && $_POST["password"])
                 if ($conn->connect_error) {
                     die("Connection failed: " . $conn->connect_error);
                 }
+                $sql = "SELECT * FROM users WHERE `username`=?";
+                $stmt = $conn->prepare($sql); 
+                $stmt->bind_param("s", $_POST["username"]);
+                $stmt->execute();
+                $result = $stmt->get_result();
+                while ($row = $result->fetch_assoc()) {
+                    if($row["username"] == "")
+                    {
+                        die(header("Location: /signup/?username_taken=1"));
+                    }
+                }
               $sign_time = time();
               $sign_ip = $_SERVER['REMOTE_ADDR'];
               $new_id = rand();
+              $san_email = htmlspecialchars($_POST["email"]);
               $secure_pass = password_hash($_POST["password"], PASSWORD_DEFAULT);
-              $stmt = $conn->prepare("INSERT INTO users (username, `password`, signup_time, id, ip) VALUES (?, ?, ?, ?, ?)");
-              $stmt->bind_param("ssiss", $prep_name, $secure_pass, $sign_time, $new_id, $sign_ip);
+              $stmt = $conn->prepare("INSERT INTO users (username, `password`, email, signup_time, id, ip) VALUES (?, ?, ?, ?, ?, ?)");
+              $stmt->bind_param("ssiss", $prep_name, $secure_pass, $san_email, $sign_time, $new_id, $sign_ip);
               $stmt->execute();
               $stmt->close();
             }else{
