@@ -18,6 +18,7 @@ $stmt->execute();
 $result = $stmt->get_result();
 $count = 0;
 
+echo '<div class="container-fluid"><div class="row">';
 
 while ($row = $result->fetch_assoc()) {
     $count++;
@@ -34,4 +35,4 @@ while ($row = $result->fetch_assoc()) {
         echo "</div></div>";
     }
 }
-
+echo "</div></div>";
