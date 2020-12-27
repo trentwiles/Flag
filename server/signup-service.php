@@ -54,9 +54,10 @@ if(isset($_POST["username"]) && $_POST["password"])
               $san_email = htmlspecialchars($_POST["email"]);
               $secure_pass = password_hash($_POST["password"], PASSWORD_DEFAULT);
               $stmt = $conn->prepare("INSERT INTO users (username, `password`, email, signup_time, id, ip) VALUES (?, ?, ?, ?, ?, ?)");
-              $stmt->bind_param("ssiss", $prep_name, $secure_pass, $san_email, $sign_time, $new_id, $sign_ip);
+              $stmt->bind_param("sssiss", $prep_name, $secure_pass, $san_email, $sign_time, $new_id, $sign_ip);
               $stmt->execute();
               $stmt->close();
+              $_SESSION["username"] = $prep_name;
             }else{
                 die(header("Location: /signup/?nopasswordmatch=1"));
             }
