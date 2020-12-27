@@ -22,7 +22,7 @@ while ($row = $result->fetch_assoc()) {
 
 $new_views = $pre_view + 1;
 
-$sql = "UPDATE `stat` SET `views`=?, WHERE id=?";
+$sql = "UPDATE `stat` SET `views`=? WHERE id=?";
 $stmt = $conn->prepare($sql); 
 $stmt->bind_param("ss", $new_views, $req);
 $stmt->execute();
