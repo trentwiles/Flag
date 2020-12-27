@@ -39,7 +39,8 @@ if(isset($_POST["username"]) && $_POST["password"])
                 }
                 $sql = "SELECT * FROM users WHERE `username`=?";
                 $stmt = $conn->prepare($sql); 
-                $stmt->bind_param("s", $_POST["username"]);
+                $check = strtolower($_POST["username"]);
+                $stmt->bind_param("s", $check);
                 $stmt->execute();
                 $result = $stmt->get_result();
                 while ($row = $result->fetch_assoc()) {
