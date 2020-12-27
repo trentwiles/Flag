@@ -55,7 +55,7 @@ $router->get('/login', function() {
     $desc = "Sign in and start uploading videos to share";
     $thumb = "https://cdn.riverside.rocks/a/begonia-botany-skipjack.png";
     $route = "login";
-    require "server/signup.php";
+    require "server/login.php";
 });
 
 $router->post('/signup', function() {
