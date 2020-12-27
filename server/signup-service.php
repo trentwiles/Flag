@@ -54,7 +54,8 @@ if(isset($_POST["username"]) && $_POST["password"])
               $san_email = htmlspecialchars($_POST["email"]);
               $secure_pass = password_hash($_POST["password"], PASSWORD_DEFAULT);
               $stmt = $conn->prepare("INSERT INTO users (username, `password`, email, signup_time, id, ip, bio) VALUES (?, ?, ?, ?, ?, ?)");
-              $stmt->bind_param("sssisss", $prep_name, $secure_pass, $san_email, $sign_time, $new_id, $sign_ip, "A fine user!");
+              $cbio = "A fine user!";
+              $stmt->bind_param("sssisss", $prep_name, $secure_pass, $san_email, $sign_time, $new_id, $sign_ip, $cbio);
               $stmt->execute();
               $stmt->close();
               $_SESSION["username"] = $prep_name;
