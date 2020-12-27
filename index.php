@@ -58,6 +58,10 @@ $router->get('/login', function() {
     require "server/login.php";
 });
 
+$router->post('/login', function() {
+    require "server/login-service.php";
+});
+
 $router->post('/signup', function() {
     require "server/signup-service.php";
 });
