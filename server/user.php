@@ -38,3 +38,30 @@ if(!isset($use))
   <?php echo $describe; ?>
   </p>
 </div>
+<h2>Videos</h2>
+<?php
+$sql = "SELECT * FROM videos WHERE username=?";
+$stmt = $conn->prepare($sql); 
+$stmt->bind_param("s", $useri);
+$stmt->execute();
+$result = $stmt->get_result();
+$count = 0;
+
+echo '<br><div class="container-fluid"><div class="row">';
+
+while ($row = $result->fetch_assoc()) {
+    $count++;
+    if($count == 4 || $count == 8 || $count == 12)
+    {
+        echo '<div class="container-fluid"><div class="row">';
+    }
+    echo '<div class="col-sm">';
+    echo "<a href='/watch/" . $row["v_id"] . "'><img src='" . $row["v_thumb"] . "' height='144px' width='360'/></a>";
+    echo "<br><p>" . $row["v_title"] . "</p>";
+    echo "</div>";
+    if($count == 4 || $count == 8 || $count == 12)
+    {
+        echo "</div></div>";
+    }
+}
+echo "</div></div>";
