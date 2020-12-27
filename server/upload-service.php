@@ -54,7 +54,7 @@ if(isset($_SESSION["username"]))
                     $v_size = $file->getSize();
                     $v_id = rand();
                     $v_url = "https://cdn.riverside.rocks/flag/" . $file->getNameWithExtension();
-                    $v_len = "?";
+                    $v_len = 0;
                     $v_uploader = htmlspecialchars($_SESSION["username"]);
                     $v_thumb = "https://cdn.riverside.rocks/a/printer-turnip-shoemaker.png";
                     $v_time = time();
