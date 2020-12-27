@@ -6,7 +6,7 @@ if(isset($_SESSION["username"]))
 ?>
 <script src="https://www.hCaptcha.com/1/api.js" async defer></script>
 
-<form method="post" class="w-400 mw-full">
+<form method="post" class="w-400 mw-full" enctype="multipart/form-data">
   <div class="form-group">
     <label for="full-name" class="required">Title</label>
     <input type="text" class="form-control" id="title" name="title" placeholder="A neat video..." required="required">
