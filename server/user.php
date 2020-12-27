@@ -21,7 +21,7 @@ while ($row = $result->fetch_assoc()) {
     $use = $row["username"];
 }
 
-if(!isset($use)
+if(!isset($use))
 {
     die("<h1>404: Not Found</h1>");
 }
