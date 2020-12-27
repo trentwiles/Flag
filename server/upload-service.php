@@ -74,6 +74,11 @@ if(isset($_SESSION["username"]))
                     $stmt->bind_param("ssississi", $v_title, $v_desc, $v_size, $v_url, $v_id, $v_len, $v_uploader, $v_thumb, $v_time);
                     $stmt->execute();
                     $result = $stmt->get_result();
+                    $sql = "INSERT INTO stat (id, views, likes, dislikes, commments) VALUES (?, ?, ?, ?, ?)";
+                    $stmt = $conn->prepare($sql); 
+                    $stmt->bind_param("siiis", $v_id, 0, 0, 0, "{}");
+                    $stmt->execute();
+                    $result = $stmt->get_result();
                     die(header("Location: /watch/${v_id}"));
                 } catch (\Exception $e) {
                     // Fail!
