@@ -10,7 +10,7 @@ $val = htmlspecialchars($_GET["username"]);
 
 ?>
 <script src="/frontend/username.js"></script>
-<script src="https://www.hCaptcha.com/1/api.js">
+<script src="https://www.hCaptcha.com/1/api.js" async defer></script>
 <h1>Create an account</h1>
 <br>
 <form method="post" class="w-400 mw-full">
