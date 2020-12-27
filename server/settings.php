@@ -41,10 +41,10 @@ while ($row = $result->fetch_assoc()) {
 
 <form method="post" class="w-400 mw-full">
   <div class="form-group">
-    <label for="picture" class="required">Display picture</label>
+    <label for="foo" class="required">Display picture</label>
     <div class="custom-file">
       <input type="file" id="foo" name="foo" required="required">
-      <label for="picture">Choose picture</label>
+      <label for="foo">Choose picture</label>
     </div>
   </div>
   <input class="btn btn-primary" type="submit" value="Update">
