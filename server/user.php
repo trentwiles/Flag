@@ -29,7 +29,7 @@ if(!isset($use))
 }
 
 ?>
-<img <?php echo "src='" . $photo ."'"; ?> class="img-fluid rounded-circle" alt="rounded circle image" />
+<img <?php echo "src='" . $photo ."'"; ?> class="img-fluid rounded-circle" alt="rounded circle image" width="30px" height="30px" />
 <div class="content">
   <h2 class="content-title">
     <?php echo $use; ?>
