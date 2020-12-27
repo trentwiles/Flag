@@ -27,4 +27,12 @@ $router->get('/', function() {
     require "server/home.php";
 });
 
+$router->get('/signup', function() {
+    $title = "Create an account";
+    $desc = "Sign up and start uploading videos to share";
+    $thumb = "https://flag.riverside.rocks";
+    $route = "signup";
+    require "server/home.php";
+});
+
 $router->run();
