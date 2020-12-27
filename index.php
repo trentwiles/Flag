@@ -82,6 +82,10 @@ $router->get('/upload', function() {
     require "server/upload.php";
 });
 
+$router->get('/watch/(\w+)', function($req){
+    require "server/player.php";
+});
+
 $router->post('/upload', function() {
     require "server/upload-service.php";
 });
