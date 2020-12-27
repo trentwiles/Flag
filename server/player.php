@@ -20,6 +20,9 @@ while ($row = $result->fetch_assoc()) {
     {
         die("<h1>404: Video not found. Was it removed?</h1>");
     }
+    $title = $row["v_title"];
+    $url = $row["v_url"];
+    $thumb = $row["v_thumb"];
 }
 
 ?>
@@ -31,9 +34,9 @@ while ($row = $result->fetch_assoc()) {
     class="video-js"
     controls
     preload="auto"
-    <?php echo "poster='" . $row["thumb"] . "'"; ?>
+    <?php echo "poster='" . $thumb . "'"; ?>
     data-setup='{}'>
-  <source <?php echo "src=' . " . $row["v_url"] . "'"; ?> type="video/mp4"></source>
+  <source <?php echo "src=' . " . $url . "'"; ?> type="video/mp4"></source>
   <p class="vjs-no-js">
     To view this video please enable JavaScript, and consider upgrading to a
     web browser that
@@ -42,4 +45,4 @@ while ($row = $result->fetch_assoc()) {
     </a>
   </p>
 </video>
-<?php echo "<br><h2>" . $row["title"] . "</h2>"; ?>
+<?php echo "<br><h2>" . $title . "</h2>"; ?>
