@@ -10,6 +10,23 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
+
+$sql = "SELECT views FROM stat WHERE `id`=?";
+$stmt = $conn->prepare($sql); 
+$stmt->bind_param("s", $req);
+$stmt->execute();
+$result = $stmt->get_result();
+while ($row = $result->fetch_assoc()) {
+    $pre_view = $row["views"];
+}
+
+$new_views = $pre_view + 1;
+
+$sql = "UPDATE `stat` SET `views`=?, WHERE id=?";
+$stmt = $conn->prepare($sql); 
+$stmt->bind_param("ss", $new_views, $req);
+$stmt->execute();
+
 $sql = "SELECT * FROM videos WHERE `v_id`=?";
 $stmt = $conn->prepare($sql); 
 $stmt->bind_param("s", $req);
