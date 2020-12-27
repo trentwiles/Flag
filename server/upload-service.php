@@ -1,15 +1,7 @@
 <?php
 include "header.php";
 
-$servername = $_ENV['MYSQL_SERVER'];
-$username = $_ENV["MYSQL_USERNAME"];
-$password = $_ENV["MYSQL_PASSWORD"];
-$dbname = $_ENV["MYSQL_DATABASE"];
 
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
 
 if(isset($_SESSION["username"]))
 {
@@ -54,7 +46,11 @@ if(isset($_SESSION["username"]))
                 // Try to upload file
                 try {
                     $v_title = htmlspecialchars($_POST["title"]);
-                    $v_desc = htmlspecialchars($_POST["desc"]);
+                    if(! $_POST["description"])
+                    {
+                        $_POST["description"] = "A neat video.";
+                    }
+                    $v_desc = htmlspecialchars($_POST["description"]);
                     $v_size = $file->getSize();
                     $v_id = rand();
                     $v_url = "https://cdn.riverside.rocks/flag/" . $file->getNameWithExtension();
@@ -64,6 +60,15 @@ if(isset($_SESSION["username"]))
                     $v_time = time();
                     // Success!
                     $file->upload();
+                    $servername = $_ENV['MYSQL_SERVER'];
+                    $username = $_ENV["MYSQL_USERNAME"];
+                    $password = $_ENV["MYSQL_PASSWORD"];
+                    $dbname = $_ENV["MYSQL_DATABASE"];
+
+                    $conn = new mysqli($servername, $username, $password, $dbname);
+                    if ($conn->connect_error) {
+                        die("Connection failed: " . $conn->connect_error);
+                    }
                     $sql = "INSERT INTO videos (v_title, v_desc, v_size, v_url, v_id, v_len, v_uploader, v_thumb, v_time) VALUES ()";
                     $stmt = $conn->prepare($sql); 
                     $stmt->bind_param("ssississi", $v_title, $v_desc, $v_size, $v_url, $v_id, $v_len, $v_uploader, $v_thumb, $v_time);
