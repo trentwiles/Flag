@@ -69,7 +69,7 @@ if(isset($_SESSION["username"]))
                     if ($conn->connect_error) {
                         die("Connection failed: " . $conn->connect_error);
                     }
-                    $sql = "INSERT INTO videos (v_title, v_desc, v_size, v_url, v_id, v_len, v_uploader, v_thumb, v_time) VALUES ()";
+                    $sql = "INSERT INTO videos (v_title, v_desc, v_size, v_url, v_id, v_len, v_uploader, v_thumb, v_time) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
                     $stmt = $conn->prepare($sql); 
                     $stmt->bind_param("ssississi", $v_title, $v_desc, $v_size, $v_url, $v_id, $v_len, $v_uploader, $v_thumb, $v_time);
                     $stmt->execute();
