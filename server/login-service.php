@@ -37,7 +37,12 @@ if(isset($_POST["username"]) && $_POST["password"])
           }else{
             if(password_verify($_POST["password"], $row['password'])){
               $_SESSION["username"] = $row["username"];
-              die(header("Location: /account/home"));
+              if(isset($_GET["to"]))
+              {
+                  die(header("Location: /" . $_GET["to"]));
+              }else{
+                die(header("Location: /account/home"));
+              }
             }else{
               die(header("Location: /login/?badpassword=1"));
             }

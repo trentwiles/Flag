@@ -58,6 +58,14 @@ $router->get('/login', function() {
     require "server/login.php";
 });
 
+$router->get('/upload', function() {
+    $title = "Upload a video";
+    $desc = "Upload a short video for the world to enjoy";
+    $thumb = "https://cdn.riverside.rocks/a/begonia-botany-skipjack.png";
+    $route = "upload";
+    require "server/upload.php";
+});
+
 $router->post('/login', function() {
     require "server/login-service.php";
 });

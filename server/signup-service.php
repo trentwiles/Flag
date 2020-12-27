@@ -58,7 +58,12 @@ if(isset($_POST["username"]) && $_POST["password"])
               $stmt->execute();
               $stmt->close();
               $_SESSION["username"] = $prep_name;
-              header("Location: /account/home");
+              if(isset($_GET["to"]))
+              {
+                  die(header("Location: /" . $_GET["to"]));
+              }else{
+                die(header("Location: /account/home"));
+              }
               die();
             }else{
                 die(header("Location: /signup/?nopasswordmatch=1"));
