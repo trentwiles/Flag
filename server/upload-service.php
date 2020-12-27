@@ -74,6 +74,7 @@ if(isset($_SESSION["username"]))
                     $stmt->bind_param("ssississi", $v_title, $v_desc, $v_size, $v_url, $v_id, $v_len, $v_uploader, $v_thumb, $v_time);
                     $stmt->execute();
                     $result = $stmt->get_result();
+                    die(header("Location: /watch/${v_id}"));
                 } catch (\Exception $e) {
                     // Fail!
                     $errors = $file->getErrors();
