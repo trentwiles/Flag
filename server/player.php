@@ -68,7 +68,7 @@ while ($row = $result->fetch_assoc()) {
   </p>
 </video>
 <?php echo "<br><h2>" . $title . "</h2>"; ?>
-<?php echo "<br><p>" . $new_views . " views</p>"; ?>
+<?php echo "<p>" . $new_views . " views</p>"; ?>
 <hr>
 <div class="desc" width="60%">
     <?php echo $desc; ?>
