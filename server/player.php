@@ -80,6 +80,6 @@ while ($row = $result->fetch_assoc()) {
 <?php echo "<p>" . $new_views . " views</p>"; ?>
 <hr>
 <div class="desc" width="60%">
-    <?php echo $desc; ?>
+    <?php echo "<h4>${desc}</h4><br>"; ?>
 </div>
 <?php echo "<a href='/user/${user}'><img src='${pfp}' class='img-fluid rounded-circle' alt='rounded circle image' width='75px' height='75px'><br><h2>${user}</h2></a>"; ?>
