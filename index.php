@@ -50,6 +50,10 @@ $router->get('/signup', function() {
     require "server/signup.php";
 });
 
+$router->post('/signup', function() {
+    require "server/signup-service.php";
+});
+
 $router->get('/upload', function() {
     $title = "Upload a video";
     $desc = "Sign up and start uploading videos to share";
