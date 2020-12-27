@@ -56,7 +56,8 @@ if(isset($_POST["username"]) && $_POST["password"])
               $secure_pass = password_hash($_POST["password"], PASSWORD_DEFAULT);
               $stmt = $conn->prepare("INSERT INTO users (username, `password`, email, signup_time, id, ip, bio, pfp) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
               $cbio = "A fine user!";
-              $stmt->bind_param("sssissss", $prep_name, $secure_pass, $san_email, $sign_time, $new_id, $sign_ip, $cbio, "https://cdn.riverside.rocks/a/santanaraptor-evening-mat.png");
+              $def = "https://cdn.riverside.rocks/a/santanaraptor-evening-mat.png";
+              $stmt->bind_param("sssissss", $prep_name, $secure_pass, $san_email, $sign_time, $new_id, $sign_ip, $cbio, $def);
               $stmt->execute();
               $stmt->close();
               $_SESSION["username"] = $prep_name;
