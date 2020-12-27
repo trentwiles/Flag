@@ -46,4 +46,6 @@ if(isset($_POST["username"]) && $_POST["password"])
     else {
         // Signup fails
     }
+}else{
+    die(header("Location: /signup/"));
 }
