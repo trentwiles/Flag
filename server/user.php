@@ -28,7 +28,7 @@ if(!isset($use))
 }
 
 ?>
-
+<img <?php echo "src='" . $row["pfp"] ."'"; ?> class="img-fluid rounded-circle" alt="rounded circle image" />
 <div class="content">
   <h2 class="content-title">
     <?php echo $use; ?>
