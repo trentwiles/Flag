@@ -20,6 +20,7 @@ while ($row = $result->fetch_assoc()) {
 
     $use = $row["username"];
     $describe = $row["bio"];
+    $photo = $row["pfp"];
 }
 
 if(!isset($use))
@@ -28,7 +29,7 @@ if(!isset($use))
 }
 
 ?>
-<img <?php echo "src='" . $row["pfp"] ."'"; ?> class="img-fluid rounded-circle" alt="rounded circle image" />
+<img <?php echo "src='" . $photo ."'"; ?> class="img-fluid rounded-circle" alt="rounded circle image" />
 <div class="content">
   <h2 class="content-title">
     <?php echo $use; ?>
