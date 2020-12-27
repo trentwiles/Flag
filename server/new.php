@@ -25,7 +25,7 @@ while ($row = $result->fetch_assoc()) {
     {
     }
     echo '<div class="col-sm">';
-    echo "<a href='/watch/" . $row["v_id"] . "'><img src='" . $row["v_thumb"] . "' /></a>";
+    echo "<a href='/watch/" . $row["v_id"] . "'><img src='" . $row["v_thumb"] . "' height='144px' width='360'/></a>";
     echo "<br><p>" . $row["v_title"] . "</p>";
     echo "</div>";
     if($count % 4 != 0)
