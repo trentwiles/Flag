@@ -28,6 +28,15 @@ if(isset($_POST["username"]) && $_POST["password"])
           }else{
             if($_POST["password"] == $_POST["password_conf"])
             {
+                $servername = $_ENV['MYSQL_SERVER'];
+                $username = $_ENV["MYSQL_USERNAME"];
+                $password = $_ENV["MYSQL_PASSWORD"];
+                $dbname = $_ENV["MYSQL_DATABASE"];
+
+                $conn = new mysqli($servername, $username, $password, $dbname);
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                }
               $sign_time = time();
               $sign_ip = $_SERVER['REMOTE_ADDR'];
               $new_id = rand();
