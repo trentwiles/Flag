@@ -40,7 +40,7 @@ if(!isset($use))
 </div>
 <h2>Videos</h2>
 <?php
-$sql = "SELECT * FROM videos WHERE username=?";
+$sql = "SELECT * FROM videos WHERE v_uploader=?";
 $stmt = $conn->prepare($sql); 
 $stmt->bind_param("s", $useri);
 $stmt->execute();
