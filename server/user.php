@@ -17,11 +17,13 @@ $stmt->bind_param("s", $useri);
 $stmt->execute();
 $result = $stmt->get_result();
 while ($row = $result->fetch_assoc()) {
-    if(!isset($row["username"]))
-    {
-        die("<h1>404: Not Found</h1>");
-    }
+
     $use = $row["username"];
+}
+
+if(!isset($use)
+{
+    die("<h1>404: Not Found</h1>");
 }
 
 ?>
