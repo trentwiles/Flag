@@ -108,6 +108,9 @@ $router->mount('/account', function () use ($router) {
     $router->get('/settings', function() {
         require "server/settings.php";
     });
+    $router->post('/settings', function() {
+        require "server/settings-backend.php";
+    });
     $router->get('/signout', function() {
         session_start();
         session_unset();
