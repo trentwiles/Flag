@@ -35,6 +35,7 @@ while ($row = $result->fetch_assoc()) {
   </div>
   <input class="btn btn-primary" type="submit" value="Update">
 </form>
+<br>
 
 
 <form method="post" class="w-400 mw-full">
