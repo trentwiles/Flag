@@ -42,6 +42,14 @@ while ($row = $result->fetch_assoc()) {
     $thumb = $row["v_thumb"];
     $desc = $row["v_desc"];
     $user = $row["v_uploader"];
+}
+
+$sql = "SELECT * FROM users WHERE `username`=?";
+$stmt = $conn->prepare($sql); 
+$stmt->bind_param("s", $user);
+$stmt->execute();
+$result = $stmt->get_result();
+while ($row = $result->fetch_assoc()) {
     $pfp = $row["pfp"];
 }
 
