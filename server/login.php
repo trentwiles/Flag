@@ -17,7 +17,17 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-
+$sql = "SELECT * FROM users WHERE `username`=?";
+$stmt = $conn->prepare($sql); 
+$stmt->bind_param("s", $val);
+$stmt->execute();
+$result = $stmt->get_result();
+while ($row = $result->fetch_assoc()) {
+    if($row["username"] == "")
+    {
+        die(header("Location: /signup/?username=${val}"));
+    }
+}
 
 ?>
 <script src="https://www.hCaptcha.com/1/api.js" async defer></script>
