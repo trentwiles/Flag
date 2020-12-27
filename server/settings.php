@@ -43,7 +43,7 @@ while ($row = $result->fetch_assoc()) {
   <div class="form-group">
     <label for="picture" class="required">Display picture</label>
     <div class="custom-file">
-      <input type="file" id="picture" name="pfp" required="required">
+      <input type="file" id="foo" name="foo" required="required">
       <label for="picture">Choose picture</label>
     </div>
   </div>

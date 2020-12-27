@@ -25,10 +25,10 @@ if(isset($_POST["bio"]))
     $stmt->execute();
 }
 
-if(isset($_POST["pfp"]))
+if(isset($_POST["foo"]))
 {
     $storage = new \Upload\Storage\FileSystem('/var/www/drive1/cdn/profiles/');
-        $file = new \Upload\File('pfp', $storage);
+        $file = new \Upload\File('foo', $storage);
 
         $names = json_decode(file_get_contents("https://friendlywords.eddiestech.co.uk/.netlify/functions/words/objects"), true);
 
