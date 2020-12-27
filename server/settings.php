@@ -31,18 +31,19 @@ while ($row = $result->fetch_assoc()) {
 <form method="post" class="w-400 mw-full">
 <div class="form-group">
     <label for="description">Description</label>
-    <textarea class="form-control" id="description" <?php echo "placeholder='" . $describe . "'"; ?> required="required"></textarea>
+    <textarea class="form-control" id="description" <?php echo "placeholder='" . $describe . "'"; ?> name="bio" required="required"></textarea>
   </div>
   <input class="btn btn-primary" type="submit" value="Update">
 </form>
 <br>
 
+<hr>
 
 <form method="post" class="w-400 mw-full">
   <div class="form-group">
     <label for="picture" class="required">Display picture</label>
     <div class="custom-file">
-      <input type="file" id="picture" required="required">
+      <input type="file" id="picture" name="pfp" required="required">
       <label for="picture">Choose picture</label>
     </div>
   </div>
