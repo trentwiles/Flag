@@ -17,19 +17,21 @@ $stmt = $conn->prepare($sql);
 $stmt->execute();
 $result = $stmt->get_result();
 $count = 0;
-echo '<div class="container-fluid"><div class="row">';
+
 
 while ($row = $result->fetch_assoc()) {
     $count++;
-    if($count % 4 != 0)
+    if($count == 4 || $count == 8 || $count == 12)
     {
+        echo '<div class="container-fluid"><div class="row">';
     }
     echo '<div class="col-sm">';
     echo "<a href='/watch/" . $row["v_id"] . "'><img src='" . $row["v_thumb"] . "' height='144px' width='360'/></a>";
     echo "<br><p>" . $row["v_title"] . "</p>";
     echo "</div>";
-    if($count % 4 != 0)
+    if($count == 4 || $count == 8 || $count == 12)
     {
+        echo "</div></div>";
     }
 }
-echo "</div></div>";
+
