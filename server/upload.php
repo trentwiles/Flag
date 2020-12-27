@@ -21,12 +21,15 @@ if(isset($_SESSION["username"]))
       <label for="vid">Choose video</label>
     </div>
   </div>
+  <!--
   <div class="form-group">
     <div class="custom-checkbox">
       <input type="checkbox" id="agree-to-terms" required="required">
       <label for="agree-to-terms">I agree to the <a href="https://riverside.rocks/legal" class="hyperlink">terms of service</a></label>
     </div>
   </div>
+  -->
+
   <input class="btn btn-primary" type="submit" value="Upload">
 </form>
 
