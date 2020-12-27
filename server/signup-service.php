@@ -36,6 +36,8 @@ if(isset($_POST["username"]) && $_POST["password"])
               $stmt->bind_param("ssiss", $prep_name, $secure_pass, $sign_time, $new_id, $sign_ip);
               $stmt->execute();
               $stmt->close();
+            }else{
+                die(header("Location: /signup/?nopasswordmatch=1"));
             }
           }
         }
