@@ -66,7 +66,7 @@ $router->mount('/account', function () use ($router) {
     $router->get('/', function () {
         die(header("Location: /account/home"));
     });
-    $router->post('/home', function() {
+    $router->get('/home', function() {
         require "server/account.php";
     });
 });
