@@ -23,6 +23,8 @@ while ($row = $result->fetch_assoc()) {
     $title = $row["v_title"];
     $url = $row["v_url"];
     $thumb = $row["v_thumb"];
+    $desc = $row["v_desc"];
+    $user = $row["v_uploader"];
 }
 
 ?>
@@ -49,3 +51,8 @@ while ($row = $result->fetch_assoc()) {
   </p>
 </video>
 <?php echo "<br><h2>" . $title . "</h2>"; ?>
+<hr>
+<div class="desc" width="60%">
+    <?php echo $desc; ?>
+</div>
+<?php echo "<p><a href='/user/${user}'>${user}</a></p>"; ?>
