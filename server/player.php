@@ -42,6 +42,7 @@ while ($row = $result->fetch_assoc()) {
     $thumb = $row["v_thumb"];
     $desc = $row["v_desc"];
     $user = $row["v_uploader"];
+    $pfp = $row["pfp"];
 }
 
 ?>
@@ -73,4 +74,4 @@ while ($row = $result->fetch_assoc()) {
 <div class="desc" width="60%">
     <?php echo $desc; ?>
 </div>
-<?php echo "<p><a href='/user/${user}'>${user}</a></p>"; ?>
+<?php echo "<p><img src='${pfp}' class='img-fluid rounded-circle' alt='rounded circle image'><a href='/user/${user}'>${user}</a></p>"; ?>

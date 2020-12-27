@@ -38,7 +38,7 @@ if(!isset($use))
   <?php echo $describe; ?>
   </p>
 </div>
-<h2>Videos</h2>
+<h3>Videos</h3>
 <?php
 $sql = "SELECT * FROM videos WHERE v_uploader=?";
 $stmt = $conn->prepare($sql); 
