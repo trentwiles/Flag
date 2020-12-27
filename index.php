@@ -86,6 +86,10 @@ $router->get('/watch/(\w+)', function($req){
     require "server/player.php";
 });
 
+$router->get('/user/(\w+)', function($useri){
+    require "server/user.php";
+});
+
 $router->post('/upload', function() {
     require "server/upload-service.php";
 });

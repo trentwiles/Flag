@@ -56,10 +56,21 @@ if(isset($_SESSION["username"]))
                     $v_url = "https://cdn.riverside.rocks/flag/" . $file->getNameWithExtension();
                     $v_len = 0;
                     $v_uploader = htmlspecialchars($_SESSION["username"]);
-                    $v_thumb = "https://cdn.riverside.rocks/a/printer-turnip-shoemaker.png";
+                    
                     $v_time = time();
                     // Success!
                     $file->upload();
+                    $sec = 3;
+                    $movie = "/var/www/drive1/cdn/flag/" . $file->getNameWithExtension();
+                    $thumbnail = '/var/www/drive1/cdn/flag/' . $file->getNameWithExtension() . '.png';
+
+                    $ffmpeg = FFMpeg\FFMpeg::create();
+                    $video = $ffmpeg->open($movie);
+                    $frame = $video->frame(FFMpeg\Coordinate\TimeCode::fromSeconds($sec));
+                    $frame->save($thumbnail);
+                    
+                    $v_thumb = $thumbnail;
+
                     $servername = $_ENV['MYSQL_SERVER'];
                     $username = $_ENV["MYSQL_USERNAME"];
                     $password = $_ENV["MYSQL_PASSWORD"];
