@@ -4,6 +4,7 @@ include "header.php";
 if(isset($_SESSION["username"]))
 {
 ?>
+<script src="https://www.hCaptcha.com/1/api.js" async defer></script>
 
 <form method="post" class="w-400 mw-full">
   <div class="form-group">
@@ -27,7 +28,7 @@ if(isset($_SESSION["username"]))
       <label for="agree-to-terms">I agree to the <a href="https://riverside.rocks/legal" class="hyperlink">terms of service</a></label>
     </div>
   </div>
-
+  <div class="h-captcha" data-sitekey="80228737-9c23-4e37-a270-2cc47cca9fbe"></div>
   <input class="btn btn-primary" type="submit" value="Upload">
 </form>
 
