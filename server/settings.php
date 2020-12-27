@@ -6,7 +6,7 @@ if(!isset($_SESSION["username"]))
     die(header("Location: /login"));
 }
 
-echo $_SESSION["username"] . " - Settings";
+echo "<h1>" . $_SESSION["username"] . " - Settings</h1>";
 
 $servername = $_ENV['MYSQL_SERVER'];
 $username = $_ENV["MYSQL_USERNAME"];
