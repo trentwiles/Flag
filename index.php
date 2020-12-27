@@ -30,9 +30,17 @@ $router->get('/', function() {
 $router->get('/signup', function() {
     $title = "Create an account";
     $desc = "Sign up and start uploading videos to share";
-    $thumb = "https://flag.riverside.rocks";
+    $thumb = "https://cdn.riverside.rocks/a/begonia-botany-skipjack.png";
     $route = "signup";
     require "server/home.php";
+});
+
+$router->get('/upload', function() {
+    $title = "Upload a video";
+    $desc = "Sign up and start uploading videos to share";
+    $thumb = "https://cdn.riverside.rocks/a/begonia-botany-skipjack.png";
+    $route = "upload";
+    require "server/upload.php";
 });
 
 $router->run();
