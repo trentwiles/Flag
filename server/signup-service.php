@@ -30,8 +30,7 @@ if(isset($_POST["username"]) && $_POST["password"])
             {
               $sign_time = time();
               $sign_ip = $_SERVER['REMOTE_ADDR'];
-              $new_id = base64_rand(24);
-              die($new_id);
+              $new_id = rand();
               $secure_pass = password_hash($_POST["password"], PASSWORD_DEFAULT);
               $stmt = $conn->prepare("INSERT INTO users (username, `password`, signup_time, id, ip) VALUES (?, ?, ?, ?, ?)");
               $stmt->bind_param("ssiss", $prep_name, $secure_pass, $sign_time, $new_id, $sign_ip);
