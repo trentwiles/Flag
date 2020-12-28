@@ -44,19 +44,9 @@ if(isset($_POST["video"]))
             $stmt->execute();
             $result = $stmt->get_result();
             while ($row = $result->fetch_assoc()) {
-                if(isset($row["ation"]))
+                if(isset($row["action"]))
                 {
-                    $lower = $og_likes - 1;
-                    
-                    $sql = "DELETE FROM `actions` WHERE id=? AND username=? AND `action`=?";
-                    $stmt = $conn->prepare($sql); 
-                    $stmt->bind_param("ss", $_POST["video"], $_SESSION["username"], $_POST["action"]);
-                    $stmt->execute();
-                    $sql = "UPDATE `stat` SET `likes`=? WHERE id=?";
-                    $stmt = $conn->prepare($sql); 
-                    $stmt->bind_param("ss", $lower, $_POST["video"]);
-                    $stmt->execute();
-                    die(json_encode(array("success" => "true", "likes" => $lower), true));
+                    die(json_encode(array("success" => "false", "message" => "You cannot like a video twice.", "likes" => $og_likes), true));
                 }
             }
 
