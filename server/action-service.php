@@ -46,7 +46,7 @@ if(isset($_POST["video"]))
             while ($row = $result->fetch_assoc()) {
                 if($row["action"] == "Like" && $row["id"] == $_POST["video"])
                 {
-                    $lower = $new_likes - 1;
+                    $lower = $new_likes - 2;
                     
                     $sql = "DELETE FROM `actions` WHERE id=? AND username=? AND `action`=?";
                     $stmt = $conn->prepare($sql); 
