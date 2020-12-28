@@ -83,7 +83,7 @@ echo "const video = '${video}';"
     </a>
   </p>
 </video>
-<button id="like">Like</button>
+<i class="fas fa-thumbs-up" id="like"></i><p id="like_count">?</p>
 <?php echo "<br><h2>" . $title . "</h2>"; ?>
 <?php echo "<p>" . $new_views . " views</p>"; ?>
 <hr>
