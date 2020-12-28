@@ -83,6 +83,18 @@ if(isset($_POST["video"]))
 
         $new_dislikes = $og_dislikes + 1;
 
+        $sql = "SELECT `action` FROM actions WHERE `username`=? AND id=?";
+        $stmt = $conn->prepare($sql); 
+        $stmt->bind_param("ss", $_SESSION["username"], $_POST["video"]);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        while ($row = $result->fetch_assoc()) {
+            if($row["action"] == "Dislike")
+            {
+                die(json_encode(array("success" => "false", "message" => "You cannot dislike a video twice.", "likes" => $og_likes), true));
+            }
+        }
+
         $sql = "UPDATE `stat` SET `dislikes`=? WHERE id=?";
         $stmt = $conn->prepare($sql); 
         $stmt->bind_param("ss", $new_dislikes, $_POST["video"]);
