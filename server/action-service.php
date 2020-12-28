@@ -38,7 +38,7 @@ if(isset($_POST["video"]))
 
             $new_likes = $og_likes + 1;
 
-            $sql = "SELECT * FROM actions WHERE `username`=? AND id=?";
+            $sql = "SELECT `action` FROM actions WHERE `username`=? AND id=?";
             $stmt = $conn->prepare($sql); 
             $stmt->bind_param("ss", $_SESSION["username"], $_POST["video"]);
             $stmt->execute();
