@@ -79,7 +79,7 @@ if(isset($_POST["video"]))
 
         }else{
             header("HTTP/1.1 400 Bad Request");
-            die(json_encode(array("success" => "false", "message" => "Bad Request"), true));
+            die(json_encode(array("success" => "false", "message" => "Bad Request - Not signed in"), true));
         }
     }else{
         $sql = "SELECT dislikes FROM stat WHERE `id`=?";
@@ -113,5 +113,5 @@ if(isset($_POST["video"]))
 else
 {
     header("HTTP/1.1 400 Bad Request");
-    die(json_encode(array("success" => "false", "message" => "Bad Request"), true));
+    die(json_encode(array("success" => "false", "message" => "Bad Request - Did not POST video"), true));
 }
