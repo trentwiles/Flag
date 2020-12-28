@@ -48,7 +48,7 @@ if(isset($_POST["video"]))
                 {
                     $lower = $og_likes - 1;
 
-                    if($lower < $og_likes)
+                    if($lower > $og_likes)
                     {
                         break;
                     }
