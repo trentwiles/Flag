@@ -38,6 +38,29 @@ if(isset($_POST["video"]))
 
             $new_likes = $og_likes + 1;
 
+            $sql = "SELECT `action` FROM actions WHERE `username`=?";
+            $stmt = $conn->prepare($sql); 
+            $stmt->bind_param("s", $_SESSION["username"]);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            while ($row = $result->fetch_assoc()) {
+                if($row["action"] == "Like" && $row["id"] == $_POST["video"])
+                {
+                    $sql = "DELETE FROM `actions` WHERE id=? AND username=? AND `action`=?";
+                    $stmt = $conn->prepare($sql); 
+                    $stmt->bind_param("ss", $_POST["video"], $_SESSION["username"], $_POST["action"]);
+                    $stmt->execute();
+                    $sql = "UPDATE `stat` SET `likes`=? WHERE id=?";
+
+                    $lower = $og_likes - 1;
+
+                    $stmt = $conn->prepare($sql); 
+                    $stmt->bind_param("ss", $lower, $_POST["video"]);
+                    $stmt->execute();
+                    die(json_encode(array("success" => "true", "likes" => $lower), true));
+                }
+            }
+
             $sql = "UPDATE `stat` SET `likes`=? WHERE id=?";
             $stmt = $conn->prepare($sql); 
             $stmt->bind_param("ss", $new_likes, $_POST["video"]);

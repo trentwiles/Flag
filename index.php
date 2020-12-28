@@ -102,9 +102,6 @@ $router->get('/new', function() {
     require "server/new.php";
 });
 
-$router->get('/hasauth', function() {
-    if(isset($_SESSION["username"])){ die("true"); };
-});
 
 $router->mount('/account', function () use ($router) {
     $router->get('/', function () {

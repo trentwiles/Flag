@@ -54,6 +54,12 @@ while ($row = $result->fetch_assoc()) {
 }
 
 ?>
+<script>
+<?php
+$video = htmlspecialchars($req);
+echo "const video = '${video}';"
+?>
+</script>
 <link href="https://unpkg.com/video.js/dist/video-js.min.css" rel="stylesheet">
 <script src="https://unpkg.com/video.js/dist/video.min.js"></script>
 <br>
