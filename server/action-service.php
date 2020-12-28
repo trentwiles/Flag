@@ -66,7 +66,8 @@ if(isset($_POST["video"]))
             $stmt->bind_param("ss", $new_likes, $_POST["video"]);
             $stmt->execute();
 
-            $stmt = $conn->prepare("INSERT INTO actions (username, `action`, id, epoch) VALUES (?, ?, ?, ?)");
+            $sql = "INSERT INTO actions (username, `action`, id, epoch) VALUES (?, ?, ?, ?)";
+            $stmt = $conn->prepare($sql);
             $action = htmlspecialchars($_POST["action"]);
             $video = htmlspecialchars($_POST["video"]);
             $epoch = time();
