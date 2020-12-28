@@ -60,6 +60,7 @@ $video = htmlspecialchars($req);
 echo "const video = '${video}';"
 ?>
 </script>
+<script src="/frontend/vote.js"></script>
 <link href="https://unpkg.com/video.js/dist/video-js.min.css" rel="stylesheet">
 <script src="https://unpkg.com/video.js/dist/video.min.js"></script>
 <br>

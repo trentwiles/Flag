@@ -1,25 +1,25 @@
 $(document).ready(function(){
     $("#like").click(function(){
 
-        $.post("action",
+        $.post("/action",
         {
-          name: "Donald Duck",
-          city: "Duckburg"
+          video: video,
+          action: "Like"
         },
         function(data,status){
-          alert("Data: " + data + "\nStatus: " + status);
+          console.log(status);
         });
 
     });
     $("#dislike").click(function(){
 
-        $.post("demo_test_post.asp",
+        $.post("/action",
         {
-            name: "Donald Duck",
-            city: "Duckburg"
+          video: video,
+          action: "Dislike"
         },
         function(data,status){
-            alert("Data: " + data + "\nStatus: " + status);
+          console.log(status);
         });
 
       });
