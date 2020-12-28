@@ -94,8 +94,16 @@ $router->post('/upload', function() {
     require "server/upload-service.php";
 });
 
+$router->post('/action', function() {
+    require "server/action-service.php";
+});
+
 $router->get('/new', function() {
     require "server/new.php";
+});
+
+$router->get('/hasauth', function() {
+    if(isset($_SESSION["username"])){ die("true"); };
 });
 
 $router->mount('/account', function () use ($router) {
