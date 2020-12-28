@@ -18,7 +18,7 @@ if(isset($_POST["comment"]) && isset($_SESSION["username"]) && isset($_POST["vid
     $comment = htmlspecialchars($_POST["comment"]);
     $epoch = time();
     $comment_id = rand();
-    $stmt->bind_param("ssiss", $_SESSION["username"], $comment, $epoch, $video, $comment_id);
+    $stmt->bind_param("ssiss", $_SESSION["username"], $comment, $epoch, $_POST["video"], $comment_id);
     $stmt->execute();
     die(json_encode(array("success" => "true", "comment" => $comment), true));
 }
