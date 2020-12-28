@@ -46,13 +46,15 @@ if(isset($_POST["video"]))
             while ($row = $result->fetch_assoc()) {
                 if($row["action"] == "Like" && $row["id"] == $_POST["video"])
                 {
+                    $lower = $new_likes - 1;
+                    
                     $sql = "DELETE FROM `actions` WHERE id=? AND username=? AND `action`=?";
                     $stmt = $conn->prepare($sql); 
                     $stmt->bind_param("ss", $_POST["video"], $_SESSION["username"], $_POST["action"]);
                     $stmt->execute();
                     $sql = "UPDATE `stat` SET `likes`=? WHERE id=?";
 
-                    $lower = $og_likes - 1;
+                    
 
                     $stmt = $conn->prepare($sql); 
                     $stmt->bind_param("ss", $lower, $_POST["video"]);
