@@ -8,6 +8,7 @@ $(document).ready(function(){
         },
         function(data,status){
           console.log(status);
+          console.log(data)
           json = JSON.stringify(data)
           document.getElementById("like_count").innerHTML = json.likes
         });
