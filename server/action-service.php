@@ -40,7 +40,7 @@ if(isset($_POST["video"]))
 
             $sql = "SELECT * FROM actions WHERE `username`=? AND `action`=? AND id=?";
             $stmt = $conn->prepare($sql); 
-            $stmt->bind_param("s", $_SESSION["username"], $_POST["action"], $_POST["video"]);
+            $stmt->bind_param("sss", $_SESSION["username"], $_POST["action"], $_POST["video"]);
             $stmt->execute();
             $result = $stmt->get_result();
             while ($row = $result->fetch_assoc()) {
