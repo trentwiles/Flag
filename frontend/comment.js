@@ -1,6 +1,6 @@
 $(document).ready(function(){
     $("#comment").click(function(){
-        var comment = document.getElementById("box").innerHTML
+        var comment = document.getElementById("box").value
         $.post("/comment",
         {
           video: video,
