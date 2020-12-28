@@ -25,7 +25,7 @@ if(isset($_POST["video"]))
 {
     if($_POST["action"] == "Like")
     {
-        if($_SESSION["username"] !== "")
+        if(isset($_SESSION["username"]))
         {
             $sql = "SELECT likes FROM stat WHERE `id`=?";
             $stmt = $conn->prepare($sql); 
