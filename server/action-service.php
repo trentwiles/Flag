@@ -38,29 +38,21 @@ if(isset($_POST["video"]))
 
             $new_likes = $og_likes + 1;
 
-            $sql = "SELECT * FROM actions WHERE `username`=?";
+            $sql = "SELECT * FROM actions WHERE `username`=? AND `action`=? AND id=?";
             $stmt = $conn->prepare($sql); 
-            $stmt->bind_param("s", $_SESSION["username"]);
+            $stmt->bind_param("s", $_SESSION["username"], $_POST["action"], $_POST["video"]);
             $stmt->execute();
             $result = $stmt->get_result();
             while ($row = $result->fetch_assoc()) {
-                if($row["action"] == "Like" && $row["id"] == $_POST["video"])
+                if(isset($row["ation"]))
                 {
                     $lower = $og_likes - 1;
-
-                    if($lower > $og_likes)
-                    {
-                        break;
-                    }
                     
                     $sql = "DELETE FROM `actions` WHERE id=? AND username=? AND `action`=?";
                     $stmt = $conn->prepare($sql); 
                     $stmt->bind_param("ss", $_POST["video"], $_SESSION["username"], $_POST["action"]);
                     $stmt->execute();
                     $sql = "UPDATE `stat` SET `likes`=? WHERE id=?";
-
-                    
-
                     $stmt = $conn->prepare($sql); 
                     $stmt->bind_param("ss", $lower, $_POST["video"]);
                     $stmt->execute();
