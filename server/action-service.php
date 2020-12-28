@@ -44,7 +44,7 @@ if(isset($_POST["video"]))
             $stmt->execute();
             $result = $stmt->get_result();
             while ($row = $result->fetch_assoc()) {
-                if($row["action"] == $_POST["video"])
+                if($row["action"] == "Like")
                 {
                     die(json_encode(array("success" => "false", "message" => "You cannot like a video twice.", "likes" => $og_likes), true));
                 }
