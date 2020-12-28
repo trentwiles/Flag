@@ -47,6 +47,11 @@ if(isset($_POST["video"]))
                 if($row["action"] == "Like" && $row["id"] == $_POST["video"])
                 {
                     $lower = $og_likes - 1;
+
+                    if($lower < $og_likes)
+                    {
+                        break;
+                    }
                     
                     $sql = "DELETE FROM `actions` WHERE id=? AND username=? AND `action`=?";
                     $stmt = $conn->prepare($sql); 
