@@ -83,7 +83,7 @@ echo "const video = '${video}';"
     </a>
   </p>
 </video>
-<i class="fas fa-thumbs-up" id="like"></i><p id="like_count">?</p><i class="fas fa-thumbs-down" id="dislike"></i><p id="dislike_count">?</p>
+<!-- <i class="fas fa-thumbs-up" id="like"></i><p id="like_count">?</p><i class="fas fa-thumbs-down" id="dislike"></i><p id="dislike_count">?</p> -->
 <?php echo "<br><h2>" . $title . "</h2>"; ?>
 <?php echo "<p>" . $new_views . " views</p>"; ?>
 <hr>
@@ -91,3 +91,19 @@ echo "const video = '${video}';"
     <?php echo "<h4>${desc}</h4><br>"; ?>
 </div>
 <?php echo "<a href='/user/${user}'><img src='${pfp}' class='img-fluid rounded-circle' alt='rounded circle image' width='75px' height='75px'><h2>${user}</h2></a>"; ?>
+<br>
+<h5>Comments</h5>
+<hr>
+<p>Leave a comment!</p>
+<textarea id="box"></textarea>
+<button id="comment">Send</button>
+<p id="new_comment"></p>
+<?php
+$sql = "SELECT * FROM comments WHERE `id`=?";
+$stmt = $conn->prepare($sql); 
+$stmt->bind_param("s", $req);
+$stmt->execute();
+$result = $stmt->get_result();
+while ($row = $result->fetch_assoc()) {
+    echo $row["comment"] . "<br>";
+}
