@@ -22,6 +22,8 @@ $(document).ready(function(){
         },
         function(data,status){
           console.log(status);
+          console.log(data)
+          document.getElementById("dislike_count").innerHTML = data.likes
         });
 
       });
