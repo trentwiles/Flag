@@ -30,7 +30,6 @@ while ($row = $result->fetch_assoc()) {
 }
 
 ?>
-<script src="/frontend/username.js"></script>
 <script src="https://www.hCaptcha.com/1/api.js" async defer></script>
 <h1>Create an account</h1>
 <br>
@@ -62,3 +61,4 @@ while ($row = $result->fetch_assoc()) {
   <div class="h-captcha" data-sitekey="80228737-9c23-4e37-a270-2cc47cca9fbe"></div>
   <input class="btn btn-primary btn-block" type="submit" value="Sign up">
 </form>
+<script src="/frontend/username.js"></script>
