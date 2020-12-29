@@ -11,8 +11,6 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-die(print_r($_POST));
-
 if(isset($_POST["comment"]) && isset($_SESSION["username"]))
 {
     $sql = "INSERT INTO `comments` (username, commment, epoch, id, comment_id) VALUES (?, ?, ?, ?, ?)";
@@ -23,4 +21,6 @@ if(isset($_POST["comment"]) && isset($_SESSION["username"]))
     $stmt->bind_param("ssiss", $_SESSION["username"], $comment, $epoch, $vic, $comment_id);
     $stmt->execute();
     die(header("Location: /watch/${vic}"));
+}else if(!isset($_SESSION["username"])){
+    die(header("Location: /login/?to=watch/${vic}"));
 }
