@@ -11,6 +11,8 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
+die(print_r($_POST));
+
 if(isset($_POST["comment"]) && isset($_SESSION["username"]))
 {
     $sql = "INSERT INTO `comments` (username, commment, epoch, id, comment_id) VALUES (?, ?, ?, ?, ?)";
