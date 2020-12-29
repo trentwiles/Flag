@@ -61,7 +61,9 @@ foreach($users as $user)
 }
 
 $prep = array(
-    $users, $comments, $time
+    "username" => $users,
+    "comment" => $comments,
+    "timestamp" => $time
 );
 
 echo json_encode($prep);
