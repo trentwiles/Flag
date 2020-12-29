@@ -130,11 +130,11 @@ $router->mount('/account', function () use ($router) {
 });
 
 $router->mount('/api/v1', function () use ($router) {
-    $router->get('/', function () {
-        die(header("Location: /"));
-    });
     $router->get('/comments', function () {
         require "api/comment.php";
+    });
+    $router->get('/users', function () {
+        require "api/user.php";
     });
 });
 
