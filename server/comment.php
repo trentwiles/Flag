@@ -11,14 +11,14 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-if(isset($_POST["comment"]) && isset($_SESSION["username"]) && isset($_POST["video"]))
+if(isset($_POST["comment"]) && isset($_SESSION["username"]))
 {
     $sql = "INSERT INTO `comments` (username, commment, epoch, id, comment_id) VALUES (?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($sql); 
     $comment = htmlspecialchars($_POST["comment"]);
     $epoch = time();
     $comment_id = rand();
-    $stmt->bind_param("ssiss", $_SESSION["username"], $comment, $epoch, $_POST["video"], $comment_id);
+    $stmt->bind_param("ssiss", $_SESSION["username"], $comment, $epoch, $vic, $comment_id);
     $stmt->execute();
-    die(json_encode(array("success" => "true", "comment" => $comment), true));
+    die(header("Location: /watch/${vic}"));
 }

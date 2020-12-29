@@ -86,6 +86,10 @@ $router->get('/watch/(\w+)', function($req){
     require "server/player.php";
 });
 
+$router->post('/watch/(\w+)', function($vic){
+    require "server/comment.php";
+});
+
 $router->get('/user/(\w+)', function($useri){
     require "server/user.php";
 });

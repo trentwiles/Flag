@@ -96,9 +96,12 @@ echo "const video = '${video}';"
 <h5>Comments</h5>
 <hr>
 <p>Leave a comment!</p>
-<textarea id="box"></textarea>
-<button id="comment">Send</button>
-<p id="new_comment"></p>
+<form method="post" class="w-400 mw-full">
+<div class="form-group">
+    <textarea class="form-control" id="comment" name="comment" placeholder="What a great video!"></textarea>
+  </div>
+  <input class="btn btn-primary" type="submit" value="Comment">
+</form>
 <?php
 $sql = "SELECT * FROM comments WHERE `id`=?";
 $stmt = $conn->prepare($sql); 
