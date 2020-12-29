@@ -136,9 +136,6 @@ $router->mount('/api/v1', function () use ($router) {
     $router->get('/users', function () {
         require "api/user.php";
     });
-    $router->get('/videos', function () {
-        require "api/video.php";
-    });
 });
 
 $router->run();
