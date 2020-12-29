@@ -62,3 +62,8 @@ while ($row = $result->fetch_assoc()) {
   <input class="btn btn-primary btn-block" type="submit" value="Sign up">
 </form>
 <script src="/frontend/username.js"></script>
+<script>
+$( document ).ready(function() {
+    check();
+});
+</script>

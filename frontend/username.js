@@ -11,8 +11,3 @@ function check()
         })
     });
 }
-
-
-$( document ).ready(function() {
-    check();
-});
