@@ -41,6 +41,8 @@ while ($row = $result->fetch_assoc()) {
     <div class="form-text">
       Only alphanumeric characters and numbers are allowed.
     </div>
+    <div class="form-text" id="taken">
+    </div>
   </div>
   <div class="form-group">
     <label for="email" class="required">Email</label>
