@@ -61,7 +61,7 @@ foreach($users as $user)
 }
 
 $prep = array(
-    $numbers => array($users, $comments, $time)
+    $users, $comments, $time
 );
 
 echo json_encode($prep);
