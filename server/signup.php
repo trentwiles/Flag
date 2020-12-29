@@ -67,5 +67,3 @@ $( document ).ready(function() {
     check();
 });
 </script>
-<?php
-include "seo.php";

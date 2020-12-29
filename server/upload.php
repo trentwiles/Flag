@@ -40,4 +40,3 @@ if(isset($_SESSION["username"]))
 
 <?php
 }
-include "seo.php";

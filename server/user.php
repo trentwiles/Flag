@@ -65,5 +65,3 @@ while ($row = $result->fetch_assoc()) {
     }
 }
 echo "</div></div>";
-
-include "seo.php";

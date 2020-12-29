@@ -22,4 +22,3 @@ while ($row = $result->fetch_assoc()) {
 }
 
 echo "<h1>Enjoy ${x} short videos</h1>";
-include "seo.php";
