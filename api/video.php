@@ -40,6 +40,7 @@ $result = $stmt->get_result();
 while ($row = $result->fetch_assoc()) {
     $details = array(
         "id" => $row["v_id"],
+        "v_title" => $row["v_title"],
         "description" => $row["v_desc"],
         "size" => $row["v_size"],
         "video_url" => $row["v_url"],

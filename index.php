@@ -87,6 +87,8 @@ $router->get('/watch/(\w+)', function($req){
 });
 
 $router->post('/watch/(\w+)', function($vic){
+    $api = json_encode(file_get_contents("https://flag.riverside.rocks/api/v1/videos?id=1827943844"));
+    $title = $api["details"]["title"]
     require "server/comment.php";
 });
 
