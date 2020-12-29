@@ -110,7 +110,7 @@ if(! $limit)
 }
 $sql = "SELECT * FROM comments WHERE `id`=? ORDER BY epoch DESC LIMIT ?";
 $stmt = $conn->prepare($sql); 
-$stmt->bind_param("s", $req, $limit);
+$stmt->bind_param("si", $req, $limit);
 $stmt->execute();
 $result = $stmt->get_result();
 while ($row = $result->fetch_assoc()) {
