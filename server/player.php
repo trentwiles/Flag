@@ -109,5 +109,5 @@ $stmt->bind_param("s", $req);
 $stmt->execute();
 $result = $stmt->get_result();
 while ($row = $result->fetch_assoc()) {
-    echo "<br><a href='/user/" . $row["username"] . "'> - " . $row["comment"] . "<hr>";
+    echo "<br><h4><a href='/user/" . $row["username"] . "'>" . $row["username"] . "</a> -" . $row["comment"] . "</h4><hr>";
 }
