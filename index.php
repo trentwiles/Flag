@@ -83,11 +83,6 @@ $router->get('/upload', function() {
 });
 
 $router->get('/watch/(\w+)', function($req){
-    $api = json_encode(file_get_contents("https://flag.riverside.rocks/api/v1/videos?id=1827943844"));
-    $title = $api["details"]["title"];
-    $desc = $api["details"]["description"];
-    $thumb = $api["details"]["thumbnail"];
-    $route = "watch/${req}";
     require "server/player.php";
 });
 
