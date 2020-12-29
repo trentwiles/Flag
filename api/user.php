@@ -38,7 +38,7 @@ $stmt->bind_param("s", $request);
 $stmt->execute();
 $result = $stmt->get_result();
 while ($row = $result->fetch_assoc()) {
-    if(! $row["username"])
+    if($row["username"] == "")
     {
         die(json_encode(array("message" => "No such user")));
     }
