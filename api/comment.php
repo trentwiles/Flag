@@ -60,4 +60,8 @@ foreach($users as $user)
     $c++;
 }
 
-print_r($numbers);
+$prep = array(
+    $numbers => array($users, $comments, $time)
+);
+
+echo json_encode($prep);
