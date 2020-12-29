@@ -18,7 +18,7 @@
 <?php
 if(isset($req))
 {
-  $api = json_encode(file_get_contents("https://flag.riverside.rocks/api/v1/videos?id=${req}"));
+  $api = json_decode(file_get_contents("https://flag.riverside.rocks/api/v1/videos?id=${req}"), true);
   $title = $api["details"]["title"];
   $desc = $api["details"]["description"];
   $thumb = $api["details"]["thumbnail"];
@@ -26,7 +26,7 @@ if(isset($req))
 }
 if(isset($title) && isset($desc) && isset($thumb) && isset($route))
 {
-    echo '<meta name="title" content="${title} - Flag"';
+    echo "<meta name='title' content='${title} - Flag'>";
     echo "<meta name='description' content='${desc}'>";
     echo "<meta name='og:description' content='${desc}'>";
     echo "<meta name='og:title' content='${title}'>";
