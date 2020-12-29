@@ -119,3 +119,5 @@ while ($row = $result->fetch_assoc()) {
 $next = $limit + 5;
 
 echo "<a href='/watch/${req}/?show=${next}'><button class='btn btn-success' type='button'>Load Next 5</button></a>";
+
+include "seo.php";

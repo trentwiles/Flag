@@ -45,3 +45,5 @@ while ($row = $result->fetch_assoc()) {
   <div class="h-captcha" data-sitekey="80228737-9c23-4e37-a270-2cc47cca9fbe"></div>
   <input class="btn btn-primary btn-block" type="submit" value="Log In">
 </form>
+<?php
+include "seo.php";

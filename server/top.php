@@ -52,3 +52,4 @@ foreach($top as $video)
     echo "</div></div>";
 
 }
+include "seo.php";
