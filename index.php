@@ -102,10 +102,6 @@ $router->post('/action', function() {
     require "server/action-service.php";
 });
 
-$router->post('/comment', function() {
-    require "server/comment.php";
-});
-
 $router->get('/new', function() {
     require "server/new.php";
 });

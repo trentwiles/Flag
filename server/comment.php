@@ -13,7 +13,7 @@ if ($conn->connect_error) {
 
 if(isset($_POST["comment"]) && isset($_SESSION["username"]))
 {
-    $sql = "INSERT INTO `comments` (username, commment, epoch, id, comment_id) VALUES (?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO `comments` (username, comment, epoch, id, comment_id) VALUES (?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($sql); 
     $comment = htmlspecialchars($_POST["comment"]);
     $epoch = time();
