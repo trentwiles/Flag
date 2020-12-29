@@ -103,11 +103,19 @@ echo "const video = '${video}';"
   <input class="btn btn-primary" type="submit" value="Comment">
 </form>
 <?php
-$sql = "SELECT * FROM comments WHERE `id`=?";
+$limit = $_GET["show"];
+if(! $limit)
+{
+  $limit = 10;
+}
+$sql = "SELECT * FROM comments WHERE `id`=? ORDER BY epoch DESC LIMIT ?";
 $stmt = $conn->prepare($sql); 
-$stmt->bind_param("s", $req);
+$stmt->bind_param("s", $req, $limit);
 $stmt->execute();
 $result = $stmt->get_result();
 while ($row = $result->fetch_assoc()) {
     echo "<br><h5><a href='/user/" . $row["username"] . "'>" . $row["username"] . "</a> -" . $row["comment"] . "</h5><hr>";
 }
+$next = $limit + 5;
+
+echo "<a href='/watch/${req}/?show=${next}'><button class='btn btn-success' type='button'>Load Next 5</button></a>";
