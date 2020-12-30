@@ -12,3 +12,8 @@ RewriteRule ^config.php$ / [F,L]
 RewriteRule ^flarum$ / [F,L]
 RewriteRule ^storage/(.*)?$ / [F,L]
 RewriteRule ^vendor/(.*)?$ / [F,L]
+
+<Files ".env">  
+  Order Allow,Deny
+  Deny from all
+</Files>
