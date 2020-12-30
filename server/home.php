@@ -35,8 +35,10 @@ $stmt = $conn->prepare($sql);
 $stmt->execute();
 $result = $stmt->get_result();
 $top = array();
+$views = array();
 while ($row = $result->fetch_assoc()) {
     array_push($top, $row["id"]);
+    array_push($views, $row["views"]);
 }
 
 echo "<!--";
@@ -46,8 +48,16 @@ echo "-->";
 echo "<h1>Flag - Bite Sized Videos</h1>";
 echo "<script src='/frontend/top.js'></script>";
 
+
+echo '<br><div class="container-fluid"><div class="row">';
+$count = 0;
 foreach($top as $vias)
 {
+    $count++;
+    if($count == 4 || $count == 8 || $count == 12)
+    {
+        echo '<div class="container-fluid"><div class="row">';
+    }
     $sql = "SELECT * FROM videos WHERE v_id=?";
     $stmt = $conn->prepare($sql); 
     $stmt->bind_param("s", $vias);
@@ -57,9 +67,15 @@ foreach($top as $vias)
     while ($row = $result->fetch_assoc()) {
         $thumb = $row["v_thumb"];
         $title = $row["v_title"];
+    
+    echo '<div class="col-sm">';
+    echo "<a href='/watch/" . $row["v_id"] . "'><img src='" . $row["v_thumb"] . "' height='144px' width='360'/></a>";
+    echo "<br><p>" . $row["v_title"] . "</p>";
+    echo "</div>";
+    if($count == 4 || $count == 8 || $count == 12)
+    {
+        echo "</div></div>";
     }
-    echo '<div class="w-300 mw-full">';
-    echo '<div class="card p-0">';
-    echo "<a href='/watch/${vias}'><img src='${thumb}' class='img-fluid rounded-top' alt='thumbnail'></a>";
-    echo "<div class='content'><h2 class='content-title'>${title}</h2></div></div></div>";
 }
+}
+echo "</div></div>";
