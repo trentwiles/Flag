@@ -1,7 +1,7 @@
 function check()
 {
     $.get("/api/v1/videos?id="+video, function(data, status){
-        if(data.details.title == "")
+        if(data == null)
         {
             window.location = "/404";
         }
