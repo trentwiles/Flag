@@ -36,10 +36,6 @@ echo "<!--";
 print_r($top);
 echo "-->";
 
-echo "<h1>Flag - Bite Sized Videos</h1>";
-echo "<script src='/frontend/top.js'></script>";
-
-
 echo '<br><div class="container-fluid"><div class="row">';
 $count = 0;
 foreach($top as $vias)
