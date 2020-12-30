@@ -21,4 +21,4 @@ while ($row = $result->fetch_assoc()) {
     $x++;
 }
 
-echo "<h1>Enjoy ${x} short videos</h1>";
+echo "<h1>Enjoy lots of Bite Sized Videos</h1>";

@@ -23,6 +23,7 @@ echo "<title>";
         echo "Flag - Bite Size Videos";
     }
 echo "    </title>";
+echo '<meta name="viewport" content="width=device-width, initial-scale=1">';
 if(isset($title) && isset($desc) && isset($thumb) && isset($route))
 {
     echo "<meta name='title' content='${title} - Flag'>";
