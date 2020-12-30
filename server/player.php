@@ -33,8 +33,9 @@ $stmt->bind_param("s", $req);
 $stmt->execute();
 $result = $stmt->get_result();
 while ($row = $result->fetch_assoc()) {
-    if($row["v_title"] == "")
+    if(!isset($row["v_id"]))
     {
+        header("HTTP/1.1 404 Not Found");
         die("<h1>404: Video not found. Was it removed?</h1>");
     }
     $title = $row["v_title"];
