@@ -46,11 +46,11 @@ echo "-->";
 echo "<h1>Flag - Bite Sized Videos</h1>";
 echo "<script src='/frontend/top.js'></script>";
 
-foreach($top as $vi)
+foreach($top as $vias)
 {
     $sql = "SELECT * FROM videos WHERE id=?";
     $stmt = $conn->prepare($sql); 
-    $stmt->bind_param("s", $vi);
+    $stmt->bind_param("s", $vias);
     $stmt->execute();
     $result = $stmt->get_result();
     $top = array();
