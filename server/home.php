@@ -33,7 +33,7 @@ echo "<script>";
 echo "const videos = [";
 foreach($top as $vi)
 {
-    echo "'${vi}',";
+    echo "'${vi}', ";
 }
 echo "];";
 echo "</script>";
