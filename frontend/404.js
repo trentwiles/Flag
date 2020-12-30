@@ -1,6 +1,6 @@
 function check()
 {
-    $.get("/api/v1/videos?id="+id, function(data, status){
+    $.get("/api/v1/videos?id="+video, function(data, status){
         if(data.details.title == "")
         {
             window.location = "/404";

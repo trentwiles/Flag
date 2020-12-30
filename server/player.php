@@ -46,7 +46,6 @@ while ($row = $result->fetch_assoc()) {
     $pretime = $row["v_time"];
 }
 
-echo "<script>var id = " . htmlspecialchars($row["v_id"]) . ";</script>";
 
 $ago = time() - $pretime;
 
