@@ -53,7 +53,7 @@ echo '<br><div class="container-fluid"><div class="row">';
 $count = 0;
 foreach($top as $vias)
 {
-    $count++;
+    
     if($count == 4 || $count == 8 || $count == 12)
     {
         echo '<div class="container-fluid"><div class="row">';
@@ -76,6 +76,7 @@ foreach($top as $vias)
     {
         echo "</div></div>";
     }
+    $count++;
 }
 }
 echo "</div></div>";
