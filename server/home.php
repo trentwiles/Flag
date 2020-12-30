@@ -48,8 +48,7 @@ echo "<script src='/frontend/top.js'></script>";
 
 foreach($top as $vias)
 {
-    die($vias);
-    $sql = "SELECT * FROM videos WHERE id=?";
+    $sql = "SELECT * FROM videos WHERE v_id=?";
     $stmt = $conn->prepare($sql); 
     $stmt->bind_param("s", $vias);
     $stmt->execute();
