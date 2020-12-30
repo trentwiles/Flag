@@ -42,6 +42,37 @@ while ($row = $result->fetch_assoc()) {
     $thumb = $row["v_thumb"];
     $desc = $row["v_desc"];
     $user = $row["v_uploader"];
+    $pretime = $row["v_time"];
+}
+
+$ago = time() - $pretime;
+
+$mins = round($ago/60);
+$hours = round($ago/3600);
+$days = round($ago/86400);
+$months = round($ago/2629800);
+$years = round($ago/31557600);
+
+if($mins > 60)
+{
+  if($hours > 24)
+  {
+    if($days > 7)
+    {
+      if($months > 12)
+      {
+        $final = $years . " years ago";
+      }else{
+        $final = $months . " months ago";
+      }
+    }else{
+      $final = $days . " days ago";
+    }
+  }else{
+    $final = $hours . " hours ago";
+  }
+}else{
+  $final = $mins . " minutes ago";
 }
 
 $sql = "SELECT * FROM users WHERE `username`=?";
@@ -86,7 +117,7 @@ echo "const video = '${video}';"
 </video>
 <!-- <i class="fas fa-thumbs-up" id="like"></i><p id="like_count">?</p><i class="fas fa-thumbs-down" id="dislike"></i><p id="dislike_count">?</p> -->
 <?php echo "<br><h2>" . $title . "</h2>"; ?>
-<?php echo "<p>" . $new_views . " views</p>"; ?>
+<?php echo "<p>" . $new_views . " views - Uploaded ${final}</p>"; ?>
 <hr>
 <div class="desc" width="60%">
     <?php echo "<h4>${desc}</h4><br>"; ?>
