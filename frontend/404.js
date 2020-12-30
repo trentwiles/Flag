@@ -8,3 +8,5 @@ function check()
         console.log("status");
     });
 }
+
+check();
