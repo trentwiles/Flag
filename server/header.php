@@ -83,7 +83,7 @@ if(isset($title) && isset($desc) && isset($thumb) && isset($route))
       {
           echo "<form class='form-inline d-none d-md-flex ml-auto' action='/signup' method='get'>";
           echo '<input type="text" name="username" class="form-control" placeholder="Create a username" required="required">';
-          echo '<button class="btn btn-primary" type="submit">Sign up</button>';
+          echo '<button class="btn btn-primary" type="submit">Sign up/Log in</button>';
           echo '</form>';
       }else{
         echo 
@@ -111,7 +111,7 @@ if(isset($title) && isset($desc) && isset($thumb) && isset($route))
             {
                 echo "<form action='/signup' method='get'>";
                 echo '<div class="form-group"><input type="text" class="form-control" placeholder="Create a username" required="required"></div>';
-                echo '<button class="btn btn-primary btn-block" type="submit">Sign up</button>';
+                echo '<button class="btn btn-primary btn-block" type="submit">Sign up/Log in</button>';
                 echo '</form>';
             }else{
                 echo 
