@@ -1,6 +1,6 @@
 function array_to_top()
 {
-    vi.forEach(create)
+    videos.forEach(create)
     function create(number, id)
     {
         console.log(number)
