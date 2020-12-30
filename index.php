@@ -106,6 +106,9 @@ $router->get('/new', function() {
     require "server/new.php";
 });
 
+$router->get('/top', function() {
+    require "server/top.php";
+});
 
 $router->mount('/account', function () use ($router) {
     $router->get('/', function () {
