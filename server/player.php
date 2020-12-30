@@ -113,9 +113,13 @@ $stmt = $conn->prepare($sql);
 $stmt->bind_param("si", $req, $limit);
 $stmt->execute();
 $result = $stmt->get_result();
+$c = 0;
 while ($row = $result->fetch_assoc()) {
+    $c++;
     echo "<br><h5><a href='/user/" . $row["username"] . "'>" . $row["username"] . "</a> -" . $row["comment"] . "</h5><hr>";
 }
 $next = $limit + 5;
-
-echo "<a href='/watch/${req}/?show=${next}'><button class='btn btn-success' type='button'>Load Next 5</button></a>";
+if($c == $limit || $c > $limit)
+{
+  echo "<br><a href='/watch/${req}/?show=${next}'><button class='btn btn-success' type='button'>Load Next 5</button></a>";
+}
