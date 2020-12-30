@@ -38,20 +38,25 @@ $top = array();
 while ($row = $result->fetch_assoc()) {
     array_push($top, $row["id"]);
 }
-echo "<script>";
-echo "const videos = [";
-$nu = 0;
-foreach($top as $vi)
-{
-    $nu++;
-    if($nu == $a)
-    {
-        echo '"' . $vi . '"';
-        break;
-    }
-    echo '"' . $vi . '", ';
-}
-echo "];";
-echo "</script>";
+
+
 echo "<h1>Flag - Bite Sized Videos</h1>";
 echo "<script src='/frontend/top.js'></script>";
+
+foreach($top as $vi)
+{
+    $sql = "SELECT * FROM videos WHERE id=?";
+    $stmt = $conn->prepare($sql); 
+    $stmt->bind_param("s", $vi);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $top = array();
+    while ($row = $result->fetch_assoc()) {
+        $thumb = $row["v_thumb"];
+        $title = $row["v_title"];
+    }
+    echo '<div class="w-400 mw-full">';
+    echo '<div class="card p-0">';
+    echo "<a href='/watch/${id}'><img src='${thumb}' class='img-fluid rounded-top' alt='thumbnail'></a>";
+    echo "<div class='content'><h2 class='content-title'>${title}</h2></div></div></div>";
+}
