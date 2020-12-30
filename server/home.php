@@ -49,7 +49,7 @@ foreach($top as $vi)
         echo '"' . $vi . '"';
         break;
     }
-    echo '"' . $vi . ',"';
+    echo '"' . $vi . '", ';
 }
 echo "];";
 echo "</script>";
