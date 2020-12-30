@@ -21,4 +21,20 @@ while ($row = $result->fetch_assoc()) {
     $x++;
 }
 
-echo "<h1>Enjoy lots of Bite Sized Videos</h1>";
+$sql = "SELECT * FROM stat ORDER BY views DESC LIMIT 20";
+$stmt = $conn->prepare($sql); 
+$stmt->execute();
+$result = $stmt->get_result();
+$top = array();
+while ($row = $result->fetch_assoc()) {
+    array_push($top, $row["id"]);
+}
+echo "<script>";
+echo "const videos = [";
+foreach($top as $vi)
+{
+    echo "'${vi}',";
+}
+echo "];";
+echo "</script>";
+echo "<h1>Flag - Bite Sized Videos</h1>";
