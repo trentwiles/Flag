@@ -46,7 +46,8 @@ while ($row = $result->fetch_assoc()) {
         "video_url" => $row["v_url"],
         "uploader" => $row["v_uploader"],
         "thumbnail" => $row["v_thumb"],
-        "upload_time" => $row["v_time"]
+        "upload_time" => $row["v_time"],
+        "isBanned" => "false"
     );
     $final = array("details" => $details);
 }

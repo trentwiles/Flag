@@ -5,6 +5,10 @@ function check()
         {
             window.location = "/404";
         }
+        if(data.details.isBanned == "true")
+        {
+            window.location = "/videobanned";
+        }
         console.log("status");
     });
 }
