@@ -54,7 +54,7 @@ $count = 0;
 foreach($top as $vias)
 {
     
-    if($count == 4 || $count == 8 || $count == 12)
+    if($count == 3 || $count == 6 || $count == 9)
     {
         echo '<div class="container-fluid"><div class="row">';
     }
@@ -72,7 +72,7 @@ foreach($top as $vias)
     echo "<a href='/watch/" . $row["v_id"] . "'><img src='" . $row["v_thumb"] . "' height='144px' width='360'/></a>";
     echo "<br><p>" . $row["v_title"] . "</p>";
     echo "</div>";
-    if($count == 4 || $count == 8 || $count == 12)
+    if($count == 3 || $count == 6 || $count == 9)
     {
         echo "</div></div>";
     }
