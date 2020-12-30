@@ -38,3 +38,4 @@ foreach($top as $vi)
 echo "];";
 echo "</script>";
 echo "<h1>Flag - Bite Sized Videos</h1>";
+echo "<script src='/frontend/top.js'></script>";
