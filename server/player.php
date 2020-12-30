@@ -46,6 +46,8 @@ while ($row = $result->fetch_assoc()) {
     $pretime = $row["v_time"];
 }
 
+echo "<script>var id = " . htmlspecialchars($row["v_id"]) . ";</script>";
+
 $ago = time() - $pretime;
 
 $mins = round($ago/60);
@@ -134,6 +136,7 @@ echo "const video = '${video}';"
   </div>
   <input class="btn btn-primary" type="submit" value="Comment">
 </form>
+<script src="/frontend/404.js"></script>
 <?php
 $limit = $_GET["show"];
 if(! $limit)
