@@ -141,4 +141,9 @@ $router->mount('/api/v1', function () use ($router) {
     });
 });
 
+
+$router->set404(function() {
+    require "server/404.php";
+});
+
 $router->run();

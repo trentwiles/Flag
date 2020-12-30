@@ -71,7 +71,7 @@ if(isset($title) && isset($desc) && isset($thumb) && isset($route))
       </a>
       <span class="navbar-text text-monospace">Beta</span>
       <ul class="navbar-nav d-none d-md-flex">
-        <li class="nav-item active">
+        <li class="nav-item">
           <a href="/top" class="nav-link">Top</a>
         </li>
         <li class="nav-item">
