@@ -39,6 +39,9 @@ while ($row = $result->fetch_assoc()) {
     array_push($top, $row["id"]);
 }
 
+echo "<!--";
+print_r($top);
+echo "-->";
 
 echo "<h1>Flag - Bite Sized Videos</h1>";
 echo "<script src='/frontend/top.js'></script>";
