@@ -25,14 +25,30 @@ $sql = "SELECT * FROM stat ORDER BY views DESC LIMIT 20";
 $stmt = $conn->prepare($sql); 
 $stmt->execute();
 $result = $stmt->get_result();
+$a = 0;
+while ($row = $result->fetch_assoc()) {
+    $a++;
+}
+
+$sql = "SELECT * FROM stat ORDER BY views DESC LIMIT 20";
+$stmt = $conn->prepare($sql); 
+$stmt->execute();
+$result = $stmt->get_result();
 $top = array();
 while ($row = $result->fetch_assoc()) {
     array_push($top, $row["id"]);
 }
 echo "<script>";
 echo "const videos = [";
+$nu = 0;
 foreach($top as $vi)
 {
+    $nu++;
+    if($nu == $a)
+    {
+        echo "'${vi}'";
+        break;
+    }
     echo "'${vi}', ";
 }
 echo "];";
