@@ -58,8 +58,8 @@ foreach($top as $vias)
         $thumb = $row["v_thumb"];
         $title = $row["v_title"];
     }
-    echo '<div class="w-400 mw-full">';
+    echo '<div class="w-200 mw-full">';
     echo '<div class="card p-0">';
-    echo "<a href='/watch/${id}'><img src='${thumb}' class='img-fluid rounded-top' alt='thumbnail'></a>";
+    echo "<a href='/watch/${vias}'><img src='${thumb}' class='img-fluid rounded-top' alt='thumbnail'></a>";
     echo "<div class='content'><h2 class='content-title'>${title}</h2></div></div></div>";
 }
