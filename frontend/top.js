@@ -1,7 +1,6 @@
 function array_to_top()
 {
-    var vi = JSON.parse(videos)
-    vi.foreach(create)
+    vi.forEach(create)
     function create(number, id)
     {
         console.log(number)
