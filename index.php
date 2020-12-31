@@ -66,6 +66,10 @@ $router->get('/upload', function() {
     require "server/upload.php";
 });
 
+$router->get('/sitemap', function() {
+    require "server/sitemap.php";
+});
+
 $router->post('/login', function() {
     require "server/login-service.php";
 });
