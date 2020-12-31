@@ -66,7 +66,7 @@ $router->get('/upload', function() {
     require "server/upload.php";
 });
 
-$router->get('/sitemap', function() {
+$router->get('/sitemap.xml', function() {
     require "server/sitemap.php";
 });
 
