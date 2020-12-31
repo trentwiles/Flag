@@ -4,7 +4,7 @@ use Thepixeldeveloper\Sitemap\Urlset;
 use Thepixeldeveloper\Sitemap\Url;
 use Thepixeldeveloper\Sitemap\Drivers\XmlWriterDriver;
 
-$loc = "https://flag.riverside.rocks";
+$loc = date("Y-m-d H:i:s", time());
 
 $url = new Url($loc);
 $url->setLastMod($lastMod);
