@@ -1,20 +1,13 @@
-<?php declare(strict_types=1);
+<?php
+use Tackk\Cartographer\Sitemap;
+use Tackk\Cartographer\ChangeFrequency;
 
-use Thepixeldeveloper\Sitemap\Urlset;
-use Thepixeldeveloper\Sitemap\Url;
-use Thepixeldeveloper\Sitemap\Drivers\XmlWriterDriver;
+$sitemap = new Tackk\Cartographer\Sitemap();
+$time = date("Y-d-m", time());
+$sitemap->add('https://flag.riverside.rocks', $time, ChangeFrequency::WEEKLY, 1.0);
+$sitemap->add('https://flag.riverside.rocks/top', $time);
+$sitemap->add('https://flag.riverside.rocks/new', $time);
 
-$loc = date("Y-m-d H:i:s", time());
 
-$url = new Url($loc);
-$url->setLastMod($lastMod);
-$url->setChangeFreq($changeFreq);
-$url->setPriority($priority);
-
-$urlset = new Urlset();
-$urlset->add($url);
-
-$driver = new XmlWriterDriver();
-$urlset->accept($driver);
-
-echo $driver->output();
+header ('Content-Type:text/xml');
+echo $sitemap->toString();
