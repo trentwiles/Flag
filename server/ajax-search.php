@@ -11,7 +11,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$q = $_GET["q"];
+$q = "%" . $_GET["q"] . "%";
 
 if(! $q)
 {
