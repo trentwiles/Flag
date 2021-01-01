@@ -146,6 +146,9 @@ $router->mount('/api/v1', function () use ($router) {
     $router->get('/videos', function () {
         require "api/video.php";
     });
+    $router->get('/search', function () {
+        require "server/ajax-search.php";
+    });
 });
 
 
