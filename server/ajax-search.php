@@ -13,6 +13,11 @@ if ($conn->connect_error) {
 
 $q = $_GET["q"];
 
+if(! $q)
+{
+    $q = "the";
+}
+
 
 $sql = "SELECT v_title, v_id FROM videos WHERE v_title LIKE ?%";
 $stmt = $conn->prepare($sql); 
