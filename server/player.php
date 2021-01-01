@@ -100,7 +100,7 @@ echo "const video = '${video}';"
 <br>
 <video
     id="watch"
-    class="video-js"
+    class="video-js vjs-fluid"
     controls
     preload="auto"
     <?php echo "poster='" . $thumb . "'"; ?>
