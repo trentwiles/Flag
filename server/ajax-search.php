@@ -19,7 +19,7 @@ if(! $q)
 }
 
 
-$sql = "SELECT * FROM videos WHERE v_title LIKE '?%'";
+$sql = "SELECT * FROM videos WHERE v_title LIKE '%?%'";
 $stmt = $conn->prepare($sql); 
 $stmt->bind_param("s", $q);
 $stmt->execute();
