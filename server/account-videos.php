@@ -42,6 +42,7 @@ while ($row = $result->fetch_assoc()) {
     $result = $stmt->get_result();
     while ($row = $result->fetch_assoc()) {
         $views = $row["views"];
+        break;
     }
 
     echo '  <tbody>
