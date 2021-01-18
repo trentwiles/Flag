@@ -19,8 +19,9 @@ if ($conn->connect_error) {
 
 $sql = "SELECT * FROM videos WHERE username=? ORDER BY v_time DESC";
 
-$stmt = $conn->prepare($sql); 
-$stmt->bind_param("s", $_SESSION["username"]);
+$stmt = $conn->prepare($sql);
+$authed_user = $_SESSION["username"]; 
+$stmt->bind_param("s", $authed_user);
 $stmt->execute();
 $result = $stmt->get_result();
 
