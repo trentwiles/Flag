@@ -152,6 +152,9 @@ $router->mount('/api/v1', function () use ($router) {
     $router->get('/search', function () {
         require "server/ajax-search.php";
     });
+    $router->get('/stats', function () {
+        require "api/stats.php";
+    });
 });
 
 

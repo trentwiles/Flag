@@ -6,6 +6,12 @@ if(! $_SESSION["username"])
     die(header("Location: /login/?to=account/videos"));
 }
 
+?>
+
+<script src="/frontend/stats.js"></script>
+
+<?php
+
 $servername = $_ENV['MYSQL_SERVER'];
 $username = $_ENV["MYSQL_USERNAME"];
 $password = $_ENV["MYSQL_PASSWORD"];
@@ -33,7 +39,7 @@ echo '      <th>Title</th>
 while ($row = $result->fetch_assoc()) {
     $title = $row["v_title"];
     $vid = $row["v_id"];
-
+/*
 
     $sql = "SELECT * FROM stat WHERE id=?";
     $stmt = $conn->prepare($sql);
@@ -44,11 +50,12 @@ while ($row = $result->fetch_assoc()) {
         $views = $row["views"];
         break;
     }
-
+    */
+    echo "<script>getViews(${vid});</script>";
     echo '  <tbody>
     <tr>';
     echo "<th>${title}</th>";
     echo "<th>${vid}</th>";
-    echo "<th>${views}</th>";
+    echo "<th id='${vid}'>n/a</th>";
     echo "</tr></tbody>";
 }
