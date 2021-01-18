@@ -1,6 +1,6 @@
 function getViews(id)
 {
-    $.get("/api/v1/", function(data, status){
-        alert("Data: " + data + "\nStatus: " + status);
-      });
+    $.get("/api/v1/stats?id="+id, function(data, status){
+        document.getElementById(id).innerHTML = data.details.views
+    });
 }
