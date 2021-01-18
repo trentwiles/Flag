@@ -32,7 +32,7 @@ if(! $video)
     die(json_encode(array("success" => "false", "message" => "400 Bad Request")));
 }
 
-$sql = "SELECT * FROM stats WHERE `id`=?";
+$sql = "SELECT * FROM stat WHERE `id`=?";
 $stmt = $conn->prepare($sql); 
 $stmt->bind_param("s", $video);
 $stmt->execute();
