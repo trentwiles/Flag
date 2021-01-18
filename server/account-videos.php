@@ -56,6 +56,7 @@ while ($row = $result->fetch_assoc()) {
     <tr>';
     echo "<th>${title}</th>";
     echo "<th>${vid}</th>";
+    echo "<th><a href='/account/edit/${vid}' target='_blank'><button class='btn btn-primary' type='button'>Edit</button></a></th>";
     echo "<th id='${vid}'>n/a</th>";
     echo "</tr></tbody>";
 }
