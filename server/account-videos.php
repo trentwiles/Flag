@@ -33,9 +33,21 @@ echo '      <th>Title</th>
 while ($row = $result->fetch_assoc()) {
     $title = $row["v_title"];
     $vid = $row["v_id"];
+
+
+    $sql = "SELECT * FROM stat WHERE id=?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $vid);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    while ($row = $result->fetch_assoc()) {
+        $views = $row["views"];
+    }
+
     echo '  <tbody>
     <tr>';
     echo "<th>${title}</th>";
     echo "<th>${vid}</th>";
+    echo "<th>${views}</th>";
     echo "</tr></tbody>";
 }
