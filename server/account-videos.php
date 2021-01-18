@@ -22,8 +22,14 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-
-$sql = "SELECT * FROM videos WHERE v_uploader=? ORDER BY v_time DESC";
+if($_GET["sort"] == "new")
+{
+    $sql = "SELECT * FROM videos WHERE v_uploader=? ORDER BY v_time DESC LIMIT 20"; // limited to 20 for now
+}else if($_GET["sort"] == "old"){
+    $sql = "SELECT * FROM videos WHERE v_uploader=? ORDER BY v_time ASC LIMIT 20"; // limited to 20 for now
+}else{
+    $sql = "SELECT * FROM videos WHERE v_uploader=? ORDER BY v_time DESC LIMIT 20"; // limited to 20 for now
+}
 
 $stmt = $conn->prepare($sql);
 $authed_user = $_SESSION["username"]; 
