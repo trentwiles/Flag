@@ -130,6 +130,9 @@ $router->mount('/account', function () use ($router) {
     $router->get('/videos', function() {
         require "server/account-videos.php";
     });
+    $router->get('/edit/(\w+)', function($video_id) {
+        require "server/account-edit.php";
+    });
     $router->get('/signout', function() {
         session_start();
         session_unset();
