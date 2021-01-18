@@ -66,3 +66,10 @@ while ($row = $result->fetch_assoc()) {
     echo "<th id='${vid}'>n/a</th>";
     echo "</tr></tbody>";
 }
+
+?>
+
+<div class="btn-group" role="group" aria-label="Change">
+  <a href="?sort=new"><button class="btn" type="button">Sort by new</button></a>
+  <a href="?sort=old"><button class="btn" type="button">Sort by old</button></a>
+</div>
