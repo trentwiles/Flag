@@ -28,10 +28,8 @@ $result = $stmt->get_result();
 echo '<form method="post" class="w-400 mw-full">';
 
 while ($row = $result->fetch_assoc()) {
-    if($row["v_uploader"] !== $_SESSION["username"])
-    {
-        die("<br><h2>Looks like you don't have access to this video or it doesn't exsist.</h2>");
-    }
+
+    $uploader = $row["v_uploader"];
     $cur_title = $row["v_title"];
     $cur_desc = $row["v_desc"];
     echo '<div class="form-group">';
@@ -40,10 +38,15 @@ while ($row = $result->fetch_assoc()) {
     echo "</div>";
     echo '<div class="form-group">';
     echo '<label for="description">Description</label>';
-    echo "<textarea class='form-control' id='description' placeholder='${cur_desc}' required='required'>";
+    echo "<textarea class='form-control' id='description' placeholder='${cur_desc}' required='required'></textarea>";
     echo "</div>";
-    echo '<input class="btn btn-primary" type="submit" value="Submit"></form>';
+    echo '<input class="btn btn-primary" type="submit" value="Update"></form>';
     break;
+}
+
+if($uploader !== $_SESSION["username"])
+{
+    die("<br><h2>Looks like you don't have access to this video or it doesn't exsist.</h2>");
 }
 
 if(isset($_POST["title"]) && isset($_POST["description"]))
@@ -73,3 +76,5 @@ if(isset($_POST["title"]) && isset($_POST["description"]))
     $stmt->bind_param("s", $video_id);
     $stmt->execute();
 }
+
+echo "<button class='btn btn-danger' type='button' onclick='areYouSure();'>Delete Video</button>";
