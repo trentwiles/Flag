@@ -1,5 +1,5 @@
 <?php 
-include "header.php";
+include "server/header.php";
 
 ?>
 <h5 class="sidebar-title">About Us</h5>

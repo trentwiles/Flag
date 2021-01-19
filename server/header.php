@@ -78,6 +78,9 @@ if(isset($title) && isset($desc) && isset($thumb) && isset($route))
         <li class="nav-item">
           <a href="/new" class="nav-link">New</a>
         </li>
+        <li class="nav-item">
+          <a href="/about/" class="nav-link">About</a>
+        </li>
       </ul>
       <?php
       if(!isset($_SESSION["username"]))
@@ -105,6 +108,7 @@ if(isset($title) && isset($desc) && isset($thumb) && isset($route))
           <div class="dropdown-menu dropdown-menu-right w-200" aria-labelledby="navbar-dropdown-toggle-btn-1"> <!-- w-200 = width: 20rem (200px) -->
             <a href="/top" class="dropdown-item">Top</a>
             <a href="/new" class="dropdown-item">New</a>
+            <a href="/new" class="dropdown-item">About</a>
             <div class="dropdown-divider"></div>
             <div class="dropdown-content">
             <?php
