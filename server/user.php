@@ -84,7 +84,7 @@ foreach($videos as $video)
     $result = $stmt->get_result();
 
     while ($row = $result->fetch_assoc()) {
-        $cont = $cont + $row["views"];
+        $cont = $cont + (int)($row["views"]);
     }
 }
 
