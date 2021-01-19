@@ -87,4 +87,4 @@ if(isset($_POST["title"]) && isset($_POST["description"]))
     echo "<!-- no delete requested -->";
 }
 
-echo "<br><button class='btn btn-danger' type='button' onclick='areYouSure();'>Delete Video</button>";
+echo "<br><button class='btn btn-danger' type='button' onclick='areYouSure(${video_id});'>Delete Video</button>";

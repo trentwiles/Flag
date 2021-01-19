@@ -12,7 +12,7 @@ function areYouSure(id)
         if (result.isConfirmed) {
             $.post("/api/v1/delete",
             {
-            id: id,
+              id: id,
             },
             function(data,status){
                 if(data.message !== "success")
