@@ -165,6 +165,11 @@ $router->mount('/api/v1', function () use ($router) {
     });
 });
 
+$router->mount('/about', function () use ($router) {
+    $router->get('/', function () {
+        require "about/about.php";
+    });
+});
 
 $router->set404(function() {
     require "server/404.php";
