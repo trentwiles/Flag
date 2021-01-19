@@ -25,9 +25,10 @@ function areYouSure(id)
                 }else{
                     Swal.fire(
                         'Video Removed',
-                        'Your video has been deleted. ('+status+')',
+                        'Your video has been deleted.',
                         'success'
                       )
+                      window.location = "/account/videos"
                 }
             });
           // delete
