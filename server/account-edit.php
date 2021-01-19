@@ -81,8 +81,10 @@ if(isset($_POST["title"]) && isset($_POST["description"]))
     $stmt->bind_param("sss", $new_title, $new_description, $video_id);
     $stmt->execute();
     die(header("Location: /account/dashboard"));
-}else{
+}else if($_POST){
     echo "Something went wrong with your request.";
+}else{
+    echo "<!-- no delete requested -->";
 }
 
 echo "<br><button class='btn btn-danger' type='button' onclick='areYouSure();'>Delete Video</button>";
