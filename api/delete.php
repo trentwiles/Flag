@@ -57,11 +57,8 @@ $stmt->execute();
 
 die(json_encode(array("success" => "true", "message" => "success")));
 
-/*
 
-DRY RUN: Do not delete fie
+
 
 unlink("/var/www/drive1/cdn/flag/${thumb}");
 unlink("/var/www/drive1/cdn/flag/${url}");
-
-*/
