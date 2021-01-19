@@ -1,7 +1,6 @@
 <?php
 session_start();
 header("X-Powered-By: Riverside Rocks");
-header("X-Server: kestral (v2.2)");
 header("X-Content-Type-Options: nosniff");
 header("X-XSS-Protections: 1; mode=block");
 header("X-Frame-Options: SAMEORIGIN");
@@ -160,6 +159,9 @@ $router->mount('/api/v1', function () use ($router) {
     });
     $router->get('/stats', function () {
         require "api/stats.php";
+    });
+    $router->post('/delete', function () {
+        require "api/delete.php";
     });
 });
 
