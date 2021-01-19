@@ -55,7 +55,7 @@ print_r($top);
 echo "-->";
 
 echo "<h1>Flag - Bite Sized Videos</h1>";
-echo "<p>${viewer} views and counting</p>";
+echo "<h3>${viewer} views and counting</h3>";
 echo "<script src='/frontend/top.js'></script>";
 
 
@@ -68,6 +68,8 @@ foreach($top as $vias)
     {
         echo '<div class="container-fluid"><div class="row">';
     }
+    $cur_views = $count - 1;
+    $viw = $views[$cur_views];
     $sql = "SELECT * FROM videos WHERE v_id=?";
     $stmt = $conn->prepare($sql); 
     $stmt->bind_param("s", $vias);
@@ -80,7 +82,7 @@ foreach($top as $vias)
     
     echo '<div class="col-sm">';
     echo "<a href='/watch/" . $row["v_id"] . "'><img src='" . $row["v_thumb"] . "' height='144px' width='360'/></a>";
-    echo "<br><p>" . $row["v_title"] . "</p>";
+    echo "<br><p>" . $row["v_title"] . " - ${viw} views</p>";
     echo "</div>";
     if($count == 4 || $count == 8 || $count == 12)
     {
