@@ -70,11 +70,12 @@ if(isset($_POST["title"]) && isset($_POST["description"]))
     $new_title = htmlspecialchars($_POST["title"]);
     $new_description = htmlspecialchars($_POST["description"]);
 
-    $sql = "SELECT * FROM videos WHERE v_id=?"; // limited to 20 for now
+    $sql = "UPDATE videos SET v_title=?, v_desc=? WHERE v_id=?"; // limited to 20 for now
 
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("s", $video_id);
+    $stmt->bind_param("sss", $new_title, $new_description, $video_id);
     $stmt->execute();
+    die(header("Location: /account/dashboard"));
 }
 
 echo "<button class='btn btn-danger' type='button' onclick='areYouSure();'>Delete Video</button>";
