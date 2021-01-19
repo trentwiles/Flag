@@ -167,7 +167,7 @@ $router->mount('/api/v1', function () use ($router) {
 
 $router->mount('/about', function () use ($router) {
     $router->get('/', function () {
-        require "about-pages/about.php";
+        require "server/about.php";
     });
 });
 
