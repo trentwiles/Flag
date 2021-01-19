@@ -37,9 +37,14 @@ if(!isset($use))
   <p>
   <?php echo $describe; ?>
   </p>
+  <br>
+  <strong id="views">0 views</strong>
 </div>
 <h4>Videos</h4>
 <?php
+
+$videos = array();
+
 $sql = "SELECT * FROM videos WHERE v_uploader=?";
 $stmt = $conn->prepare($sql); 
 $stmt->bind_param("s", $useri);
@@ -63,5 +68,24 @@ while ($row = $result->fetch_assoc()) {
     {
         echo "</div></div>";
     }
+    array_push($videos, $row["v_id"]);
 }
 echo "</div></div>";
+
+$cont = 0;
+
+
+foreach($videos as $video)
+{
+    $sql = "SELECT * FROM videos WHERE v_id=?";
+    $stmt = $conn->prepare($sql); 
+    $stmt->bind_param("s", $video);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    while ($row = $result->fetch_assoc()) {
+        $cont = $cont + $row["views"];
+    }
+}
+
+echo "<script>document.getElementById('views').innerHTML = ${cont}+' views';</script>";
