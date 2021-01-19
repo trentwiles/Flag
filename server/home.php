@@ -41,11 +41,21 @@ while ($row = $result->fetch_assoc()) {
     array_push($views, $row["views"]);
 }
 
+$sql = "SELECT * FROM stat";
+$stmt = $conn->prepare($sql); 
+$stmt->execute();
+$result = $stmt->get_result();
+$viewer = 0;
+while ($row = $result->fetch_assoc()) {
+    $viewer = $viewer + (int)($row["views"]);
+}
+
 echo "<!--";
 print_r($top);
 echo "-->";
 
 echo "<h1>Flag - Bite Sized Videos</h1>";
+echo "<p>${viewer} views and counting</p>";
 echo "<script src='/frontend/top.js'></script>";
 
 
