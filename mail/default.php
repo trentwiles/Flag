@@ -45,9 +45,12 @@ try {
     }
     
     $mail->isHTML(true);                                  // Set email format to HTML
-    $mail->Subject = 'Here is the subject';
-    $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
-    $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+    $prejson = fopen("email.json", "r") or die("Unable to open email config!");
+    $decode = fread($prejson,filesize("email.json"));
+    $content = json_decode($decode, true);
+    $mail->Subject = $content["subject"] . " - Flag";
+    $mail->Body    = $content["bodyHTML"];
+    $mail->AltBody = $content["bodyTXT"];
 
     $mail->send();
     echo 'Message has been sent';
