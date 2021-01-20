@@ -49,3 +49,4 @@ while ($row = $result->fetch_assoc()) {
   </div>
   <input class="btn btn-primary" type="submit" value="Update">
 </form>
+
