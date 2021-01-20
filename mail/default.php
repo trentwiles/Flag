@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 require "../vendor/autoload.php";
 
@@ -11,6 +12,18 @@ use PHPMailer\PHPMailer\Exception;
 
 $mail = new PHPMailer(true);
 
+$servername = $_ENV['MYSQL_SERVER'];
+$username = $_ENV["MYSQL_USERNAME"];
+$password = $_ENV["MYSQL_PASSWORD"];
+$dbname = $_ENV["MYSQL_DATABASE"];
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+if($_SESSION["username"] !== $_ENV["ADMIN"]){ die("bad request"); };
+
 try {
     //Server settings
     $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      // Enable verbose debug output
@@ -22,11 +35,15 @@ try {
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
     $mail->Port       = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
 
-    //Recipients
     $mail->setFrom($_ENV["EMAIL_USERNAME"], $_ENV["NAME"]);
-    $mail->addBCC('joemamalol@sharklasers.com');
-
-    // Content
+    $sql = "SELECT * FROM users";
+    $stmt = $conn->prepare($sql); 
+    $stmt->execute();
+    $result = $stmt->get_result();
+    while ($row = $result->fetch_assoc()) {
+        $mail->addBCC($_ENV["email"]);
+    }
+    
     $mail->isHTML(true);                                  // Set email format to HTML
     $mail->Subject = 'Here is the subject';
     $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
