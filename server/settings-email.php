@@ -19,7 +19,7 @@ if ($conn->connect_error) {
 }
 ?>
 <h2>I want emails about...</h2>
-<div style="width:40%;">
+<div style="width:30%;">
   <div class="form-group">
     <div class="custom-switch">
       <input type="checkbox" id="ann">
