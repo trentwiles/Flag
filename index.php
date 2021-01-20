@@ -166,6 +166,9 @@ $router->mount('/api/v1', function () use ($router) {
     $router->post('/delete', function () {
         require "api/delete.php";
     });
+    $router->post('/settings', function () {
+        require "api/settings.php";
+    });
 });
 
 $router->mount('/about', function () use ($router) {
