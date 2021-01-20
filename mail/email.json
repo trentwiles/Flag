@@ -1,5 +1,5 @@
 {
     "subject":"Configure your email settings!",
-    "bodyHTML":"<center><h2><strong>Configure your email</strong></h2><br><p>We promise not to send you spam, thats why we need you to enter your email settings and make some changes. You can find those settings <a href='https://flag.riverside.rocks/account/settings/email/?ref=email'>here</a>",
+    "bodyHTML":"<center><h2><strong>Configure your email</strong></h2><br><p>We promise not to send you spam, thats why we need you to enter your email settings. You can find those settings <a href='https://flag.riverside.rocks/account/settings/email/?ref=email'>here</a>",
     "bodyTXT":"We promise not to send you spam, thats why we need you to configure your mail settings here: https://flag.riverside.rocks/account/settings."
 }
