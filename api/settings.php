@@ -82,5 +82,6 @@ if($_POST["current"])
             "announce" => $row["announce"]
         );
         $final = array("settings" => $details);
+        die(json_decode($final, true));
     }
 }
