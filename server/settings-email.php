@@ -18,24 +18,18 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 ?>
-
+<script src="/frontend/settings.js"></script>
 <h2>I want emails about...</h2>
   <div class="form-group">
     <div class="custom-switch">
-      <input type="checkbox" id="remember-my-information">
-      <label for="remember-my-information">Announcements</label>
+      <input type="checkbox" id="ann">
+      <label for="ann">Announcements</label>
     </div>
   </div>  
   <div class="form-group">
     <div class="custom-switch">
-      <input type="checkbox" id="remember-my-information">
-      <label for="remember-my-information">Comments</label>
+      <input type="checkbox" id="comm">
+      <label for="comm">Comments</label>
     </div>
   </div>
   <br><p>Please note that you will always get emails about moderation action on your account.</p>
-
-<?php
-if($_POST)
-{
-    print_r($_POST);
-}
