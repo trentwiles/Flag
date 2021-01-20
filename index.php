@@ -126,6 +126,12 @@ $router->mount('/account', function () use ($router) {
     $router->post('/settings', function() {
         require "server/settings-backend.php";
     });
+    $router->get('/settings/email', function() {
+        require "server/settings-email.php";
+    });
+    $router->post('/settings/email', function() {
+        require "server/settings-email.php";
+    });
     $router->get('/videos', function() {
         require "server/account-videos.php";
     });

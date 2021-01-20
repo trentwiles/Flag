@@ -50,3 +50,4 @@ while ($row = $result->fetch_assoc()) {
   <input class="btn btn-primary" type="submit" value="Update">
 </form>
 
+<a href="/account/settings/email/"><button class='btn btn-danger' type='button'>Delete Video</button>
