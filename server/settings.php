@@ -50,6 +50,6 @@ while ($row = $result->fetch_assoc()) {
   <input class="btn btn-primary" type="submit" value="Update">
 </form>
 <br>
-<a href="/account/settings/email/"><button class='btn btn-danger' type='button'>Email Settings</button>
-<br>
+<a href="/account/settings/email/"><button class='btn btn-primary' type='button'>Email Settings</button>
+<br><br>
 <a href="/account/" class="btn btn-primary" type="button">Account Home</a>
