@@ -41,7 +41,7 @@ try {
     $stmt->execute();
     $result = $stmt->get_result();
     while ($row = $result->fetch_assoc()) {
-        $mail->addBCC($_ENV["email"]);
+        $mail->addBCC($row["email"]);
     }
     
     $mail->isHTML(true);                                  // Set email format to HTML
