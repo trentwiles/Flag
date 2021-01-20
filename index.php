@@ -1,4 +1,5 @@
 <?php
+/* This file must not exceed 300 lines */
 session_start();
 header("X-Powered-By: Riverside Rocks");
 header("X-Content-Type-Options: nosniff");

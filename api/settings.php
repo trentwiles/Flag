@@ -33,14 +33,14 @@ if ($conn->connect_error) {
 
 if($_POST["comments"])
 {
-    if($_POST["comments"] == "on")
+    if($_POST["comments"] == "true")
     {
         $sql = "UPDATE users SET comments=? WHERE username=?";
         $stmt = $conn->prepare($sql); 
         $on = "1";
         $stmt->bind_param("ss", $on, $_SESSION["username"]);
         $stmt->execute();
-    }else if($_POST["comments"] == "off")
+    }else if($_POST["comments"] == "false")
     {
         $sql = "UPDATE users SET comments=? WHERE username=?";
         $stmt = $conn->prepare($sql); 
@@ -52,19 +52,35 @@ if($_POST["comments"])
 
 if($_POST["announce"])
 {
-    if($_POST["announce"] == "on")
+    if($_POST["announce"] == "true")
     {
         $sql = "UPDATE users SET announce=? WHERE username=?";
         $stmt = $conn->prepare($sql); 
         $on = "1";
         $stmt->bind_param("ss", $on, $_SESSION["username"]);
         $stmt->execute();
-    }else if($_POST["announce"] == "off")
+    }else if($_POST["announce"] == "false")
     {
         $sql = "UPDATE users SET announce=? WHERE username=?";
         $stmt = $conn->prepare($sql); 
         $off = "0";
         $stmt->bind_param("ss", $off, $_SESSION["username"]);
         $stmt->execute();
+    }
+}
+
+if($_POST["current"])
+{
+    $sql = "SELECT * FROM users WHERE username=?";
+    $stmt = $conn->prepare($sql); 
+    $stmt->bind_param("s", $_SESSION["username"]);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    while ($row = $result->fetch_assoc()) {
+        $details = array(
+            "comments" => $row["comments"],
+            "announce" => $row["announce"]
+        );
+        $final = array("settings" => $details);
     }
 }
