@@ -18,7 +18,6 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 ?>
-<script src="/frontend/settings.js"></script>
 <h2>I want emails about...</h2>
   <div class="form-group">
     <div class="custom-switch">
@@ -33,3 +32,4 @@ if ($conn->connect_error) {
     </div>
   </div>
   <br><p>Please note that you will always get emails about moderation action on your account.</p>
+  <script src="/frontend/settings.js"></script>
