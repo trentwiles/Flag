@@ -19,6 +19,7 @@ if ($conn->connect_error) {
 }
 ?>
 <h2>I want emails about...</h2>
+<div style="width:40%;">
   <div class="form-group">
     <div class="custom-switch">
       <input type="checkbox" id="ann">
@@ -31,5 +32,6 @@ if ($conn->connect_error) {
       <label for="comm">Comments</label>
     </div>
   </div>
+</div>
   <br><p>Please note that you will always get emails about moderation action on your account.</p>
   <script src="/frontend/settings.js"></script>
