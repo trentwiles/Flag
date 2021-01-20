@@ -7,4 +7,4 @@ if(! $_SESSION["username"])
 }
 
 echo "<br><h1>Welcome back, " . $_SESSION["username"] . "!</h1>";
-echo '<br><a href="/upload"><button class="btn btn-primary" type="button">Upload</button></a><a href="/account/settings"><button class="btn btn-primary" type="button">Settings</button></a><a href="/account/videos"><button class="btn btn-primary" type="button">Edit Videos</button></a>';
+echo '<br><a href="/upload" class="btn btn-primary" type="button">Upload</a> <a href="/account/settings" class="btn btn-primary" type="button">Settings</a> <a href="/account/videos" class="btn btn-primary" type="button">Edit Videos</a>';
