@@ -3,7 +3,7 @@ include "header.php";
 
 if(!isset($_SESSION["username"]))
 {
-    die(header("Location: /login"));
+    die(header("Location: /login?to=accounts/settings"));
 }
 
 echo "<h1>" . $_SESSION["username"] . " - Settings</h1>";
