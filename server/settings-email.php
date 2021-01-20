@@ -35,3 +35,5 @@ if ($conn->connect_error) {
 </div>
   <br><p>Please note that you will always get emails about moderation action on your account.</p>
   <script src="/frontend/settings.js"></script>
+<br>
+<a href="/account/settings/" class="btn btn-primary" type="button">Back</a>

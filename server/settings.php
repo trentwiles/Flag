@@ -49,5 +49,7 @@ while ($row = $result->fetch_assoc()) {
   </div>
   <input class="btn btn-primary" type="submit" value="Update">
 </form>
-
-<a href="/account/settings/email/"><button class='btn btn-danger' type='button'>Delete Video</button>
+<br>
+<a href="/account/settings/email/"><button class='btn btn-danger' type='button'>Email Settings</button>
+<br>
+<a href="/account/" class="btn btn-primary" type="button">Account Home</a>
