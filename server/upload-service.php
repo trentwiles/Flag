@@ -30,7 +30,7 @@ if(isset($_SESSION["username"]))
 
             new \Upload\Validation\Mimetype(array('video/mp4')),
 
-            new \Upload\Validation\Size('15M')
+            new \Upload\Validation\Size('20M')
                 ));
 
                 // Access data about the file that has been uploaded
