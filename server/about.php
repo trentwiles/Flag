@@ -6,7 +6,7 @@ include "header.php";
 <h1 id="about">Welcome to Flag!</h1>
 <p>Flag is a great open source video sharing website that you never knew you needed.</p>
 
-<div style="width:45%">
+<div style="width:75%">
 <h2>API</h2>
 
 Most of Flag's APIs do not require a key, meaning that you can build apps without wasting time on getting
