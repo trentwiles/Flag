@@ -53,7 +53,7 @@ while ($row = $result->fetch_assoc()) {
 
 <h1>Custom Thumbnail</h1>
 
-<form method="post" class="w-400 mw-full">
+<form method="post" class="w-400 mw-full" enctype="multipart/form-data">
 <div class="form-group">
     <label for="picture" class="required">Custom Thumbnail</label>
     <div class="custom-file">
@@ -99,7 +99,7 @@ if(isset($_POST["title"]) && isset($_POST["description"]))
     $stmt->execute();
     die(header("Location: /account/dashboard"));
 }else if($_POST){
-    echo "Something went wrong with your request.";
+    //echo "Something went wrong with your request.";
 }else{
     echo "<!-- no delete requested -->";
 }
