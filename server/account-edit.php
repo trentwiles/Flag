@@ -71,6 +71,10 @@ if($uploader !== $_SESSION["username"])
     die("<br><h2>Looks like you don't have access to this video or it doesn't exsist.</h2>");
 }
 
+echo "<br>";
+
+echo "<br><button class='btn btn-danger' type='button' onclick='areYouSure(${video_id});'>Delete Video</button>";
+
 if(isset($_POST["title"]) && isset($_POST["description"]))
 {
     $sql = "SELECT * FROM videos WHERE v_id=?"; // limited to 20 for now
