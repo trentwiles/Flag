@@ -98,12 +98,7 @@ if(isset($_POST["title"]) && isset($_POST["description"]))
     $stmt->bind_param("sss", $new_title, $new_description, $video_id);
     $stmt->execute();
     die(header("Location: /account/dashboard"));
-}else{
-    echo "<!-- no delete requested -->";
-}
-
-if(isset($_POST["foo"]))
-{
+}else if(isset($_POST)){
     $storage = new \Upload\Storage\FileSystem('/var/www/drive1/cdn/flag/');
     $file = new \Upload\File('foo', $storage);
 
