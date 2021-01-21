@@ -2,17 +2,75 @@
 include "header.php";
 
 ?>
-<h5 class="sidebar-title">About Us</h5>
-<div class="sidebar-divider"></div>
-<a href="#about" class="sidebar-link active">What is Flag?</a>
-<a href="#faq" class="sidebar-link">FAQ</a>
-<br />
-<h5 class="sidebar-title">Open Source</h5>
-<div class="sidebar-divider"></div>
-<a href="/about/docs/" class="sidebar-link">Getting Started</a>
-<a href="/about/docs/api/" class="sidebar-link">API Docs</a>
 
 <h1 id="about">Welcome to Flag!</h1>
 <p>Flag is a great open source video sharing website that you never knew you needed.</p>
 
+<div style="width:45%">
+<h2>API</h2>
+
+Most of Flag's APIs do not require a key, meaning that you can build apps without wasting time on getting
+tokens.
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Request Type</th>
+      <th>Path</th>
+      <th>Params</th>
+      <th>Description</th>
+      <th>API Key Required?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>GET</th>
+      <td>/api/v1/comments</td>
+      <td>id</td>
+      <td>Returns comments of a video</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th>GET</th>
+      <td>/api/v1/users</td>
+      <td>username</td>
+      <td>Returns data on a requested username</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th>GET</th>
+      <td>/api/v1/videos</td>
+      <td>id</td>
+      <td>Returns video metadata</td>
+      <td>No</td>
+    </tr>
+     <tr>
+      <th>GET</th>
+      <td>/api/v1/search</td>
+      <td>q</td>
+      <td>Search all videos for a keyword (BETA)</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th>GET</th>
+      <td>/api/v1/stats</td>
+      <td>id</td>
+      <td>Returns statistics of a video</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th>POST</th>
+      <td>/api/v1/delete</td>
+      <td>id</td>
+      <td>Deletes a video</td>
+      <td>Yes (user token)</td>
+    </tr>
+    <tr>
+      <th>POST</th>
+      <td>/api/v1/settings</td>
+      <td>announce, comments, current</td>
+      <td>Returns or updates user settings</td>
+      <td>Yes (user token)</td>
+    </tr>
+</div>
 <?php
