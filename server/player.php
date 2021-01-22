@@ -157,3 +157,17 @@ if($c == $limit || $c > $limit)
 {
   echo "<br><a href='/watch/${req}/?show=${next}'><button class='btn btn-success' type='button'>Load Next 5</button></a>";
 }
+?>
+
+<script>
+
+// screen size issue fixed?
+
+if ($(window).width() < 1280) {
+   // do nothing
+}
+else {
+   $("#video").removeAttr("class");
+}
+
+</script>
