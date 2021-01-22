@@ -9,7 +9,7 @@ $(document).ready(function(){
         function(data,status){
           console.log(status);
           console.log(data)
-          document.getElementById("like_count").innerHTML = data.count
+          document.getElementById("like_count").innerHTML = data.Likes
         });
 
     });
@@ -23,7 +23,7 @@ $(document).ready(function(){
         function(data,status){
           console.log(status);
           console.log(data)
-          document.getElementById("dislike_count").innerHTML = data.count
+          document.getElementById("dislike_count").innerHTML = data.Dislikes
         });
 
       });

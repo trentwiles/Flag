@@ -35,9 +35,9 @@ if(!$_SESSION["username"])
     die(json_encode(array("success" => "false", "message" => "unauthorized")));
 }
 
-$sql = "SELECT * FROM actions WHERE `username`=? AND `action`=? AND id=?";
+$sql = "SELECT * FROM actions WHERE `username`=? AND id=?";
 $stmt = $conn->prepare($sql); 
-$stmt->bind_param("sss", $_SESSION["username"], $action, $video);
+$stmt->bind_param("ss", $_SESSION["username"], $video);
 $stmt->execute();
 $result = $stmt->get_result();
 $c = 0;
