@@ -1,29 +1,29 @@
 $(document).ready(function(){
     $("#like").click(function(){
 
-        $.post("/action",
+        $.post("/api/v1/vote",
         {
-          video: video,
+          id: video,
           action: "Like"
         },
         function(data,status){
           console.log(status);
           console.log(data)
-          document.getElementById("like_count").innerHTML = data.likes
+          document.getElementById("like_count").innerHTML = data.count
         });
 
     });
     $("#dislike").click(function(){
 
-        $.post("/action",
+        $.post("/api/v1/vote",
         {
-          video: video,
+          id: video,
           action: "Dislike"
         },
         function(data,status){
           console.log(status);
           console.log(data)
-          document.getElementById("dislike_count").innerHTML = data.likes
+          document.getElementById("dislike_count").innerHTML = data.count
         });
 
       });
