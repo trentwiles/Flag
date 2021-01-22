@@ -56,6 +56,7 @@ $stamp = time();
 $stmt->bind_param("sssi", $_SESSION["username"], $action, $video, $stamp);
 $stmt->execute();
 
+
 $sql = "SELECT * FROM actions WHERE `id`=? AND `action`=?";
 $stmt = $conn->prepare($sql); 
 $stmt->bind_param("ss", $video, $action);

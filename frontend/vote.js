@@ -1,3 +1,9 @@
+$.get("/api/v1/vote",
+  function(data,status){
+    document.getElementById("like_count").innerHTML = data.Likes
+    document.getElementById("dislike_count").innerHTML = data.Dislikes
+  });
+
 $(document).ready(function(){
     $("#like").click(function(){
 
