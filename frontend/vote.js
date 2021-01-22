@@ -1,4 +1,4 @@
-$.get("/api/v1/vote",
+$.get("/api/v1/vote?id="+video,
   function(data,status){
     document.getElementById("like_count").innerHTML = data.Likes
     document.getElementById("dislike_count").innerHTML = data.Dislikes
