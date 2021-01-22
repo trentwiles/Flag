@@ -161,13 +161,8 @@ if($c == $limit || $c > $limit)
 
 <script>
 
-// screen size issue fixed?
-
-if ($(window).width() < 1280) {
-   // do nothing
-}
-else {
+if (!$(window).width() < 1280) {
    $("#video").removeAttr("class");
 }
-
+// thanks to aboutDavid
 </script>
