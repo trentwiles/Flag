@@ -170,6 +170,9 @@ $router->mount('/api/v1', function () use ($router) {
     $router->post('/settings', function () {
         require "api/settings.php";
     });
+    $router->post('/vote', function () {
+        require "api/vote.php";
+    });
 });
 
 $router->mount('/about', function () use ($router) {
