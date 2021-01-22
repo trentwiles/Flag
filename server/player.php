@@ -161,7 +161,7 @@ if($c == $limit || $c > $limit)
 
 <script>
 
-if (!$(window).width() < 1280) {
+if (visualViewport.width <= 786) {
    $("#video").removeAttr("class");
 }
 // thanks to aboutDavid
