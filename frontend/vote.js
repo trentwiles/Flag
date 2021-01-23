@@ -1,10 +1,9 @@
-$.get("/api/v1/vote?id="+video,
+$(document).ready(function(){
+  $.get("/api/v1/vote?id="+video,
   function(data,status){
     document.getElementById("like_count").innerHTML = data.Likes
     document.getElementById("dislike_count").innerHTML = data.Dislikes
   });
-
-$(document).ready(function(){
     $("#like").click(function(){
 
         $.post("/api/v1/vote",
@@ -15,7 +14,7 @@ $(document).ready(function(){
         function(data,status){
           console.log(status);
           console.log(data)
-          document.getElementById("like_count").innerHTML = data.Likes
+          document.getElementById("like_count").innerHTML = data.count
         });
 
     });
@@ -29,7 +28,7 @@ $(document).ready(function(){
         function(data,status){
           console.log(status);
           console.log(data)
-          document.getElementById("dislike_count").innerHTML = data.Dislikes
+          document.getElementById("dislike_count").innerHTML = data.count
         });
 
       });
