@@ -44,7 +44,7 @@ $c = 0;
 while ($row = $result->fetch_assoc()) {
     if($row["action"])
     {
-        header("HTTP/1.1 400 Bad Request");
+        //header("HTTP/1.1 400 Bad Request"); https://support.glitch.com/t/37491/
         die(json_encode(array("success" => "false", "message" => "You can't vote twice")));
     }
 }
