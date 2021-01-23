@@ -11,7 +11,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$video = $_POST["id"];
+$video = $_GET["id"];
 
 if(! $video)
 {
