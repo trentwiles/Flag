@@ -48,14 +48,14 @@ $(document).ready(function(){
           if(data.success !== "true" && data.message == "unauthorized")
           {
             Swal.fire(
-              'Please Sign In',
-              'To vote, comment, and upload, you will need to sign in.',
+              'Error',
+              data.message,
               'error'
             )
           }else if(data.success !== "true"){
             Swal.fire(
-              "You can't vote twice!",
-              'Err, sorry about that.',
+              "Error",
+              data.message,
               'error'
             )
           }
