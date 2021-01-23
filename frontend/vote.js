@@ -14,14 +14,21 @@ $(document).ready(function(){
         function(data,status){
           console.log(status);
           console.log(data);
-          if(data.success !== "true")
+          if(data.success !== "true" && data.message == "unauthorized")
           {
             Swal.fire(
               'Please Sign In',
               'To vote, comment, and upload, you will need to sign in.',
               'error'
             )
-          }else{
+          }else if(data.success !== "true"){
+            Swal.fire(
+              "You can't vote twice!",
+              'Err, sorry about that.',
+              'error'
+            )
+          }
+          else{
             document.getElementById("like_count").innerHTML = data.count
           }
           
@@ -38,14 +45,21 @@ $(document).ready(function(){
         function(data,status){
           console.log(status);
           console.log(data)
-          if(data.success !== "true")
+          if(data.success !== "true" && data.message == "unauthorized")
           {
             Swal.fire(
               'Please Sign In',
               'To vote, comment, and upload, you will need to sign in.',
               'error'
             )
-          }else{
+          }else if(data.success !== "true"){
+            Swal.fire(
+              "You can't vote twice!",
+              'Err, sorry about that.',
+              'error'
+            )
+          }
+          else{
             document.getElementById("dislike_count").innerHTML = data.count
           }
         });
