@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  $.get("/api/v1/vote?id="+video,
+  $.get("/api/v1/votes?id="+video,
   function(data,status){
     document.getElementById("like_count").innerHTML = data.Likes
     document.getElementById("dislike_count").innerHTML = data.Dislikes

@@ -173,7 +173,7 @@ $router->mount('/api/v1', function () use ($router) {
     $router->post('/vote', function () {
         require "api/vote.php";
     });
-    $router->get('/vote', function () {
+    $router->get('/votes', function () {
         require "api/getVotes.php";
     });
 });
