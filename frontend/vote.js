@@ -14,7 +14,7 @@ $(document).ready(function(){
         function(data,status){
           console.log(status);
           console.log(data);
-          if(data.count == "")
+          if(data.success !== "true")
           {
             Swal.fire(
               'Please Sign In',
@@ -38,7 +38,7 @@ $(document).ready(function(){
         function(data,status){
           console.log(status);
           console.log(data)
-          if(data.count == "")
+          if(data.success !== "true")
           {
             Swal.fire(
               'Please Sign In',
