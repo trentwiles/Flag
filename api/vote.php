@@ -31,7 +31,7 @@ if(!in_array($action, $valid_actions))
 
 if(!$_SESSION["username"])
 {
-    header("HTTP/1.1 401 Unauthorized");
+    //header("HTTP/1.1 401 Unauthorized"); https://support.glitch.com/t/37491/
     die(json_encode(array("success" => "false", "message" => "unauthorized")));
 }
 
