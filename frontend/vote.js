@@ -13,8 +13,18 @@ $(document).ready(function(){
         },
         function(data,status){
           console.log(status);
-          console.log(data)
-          document.getElementById("like_count").innerHTML = data.count
+          console.log(data);
+          if(data.count == "")
+          {
+            Swal.fire(
+              'Please Sign In',
+              'To vote, comment, and upload, you will need to sign in.',
+              'error'
+            )
+          }else{
+            document.getElementById("like_count").innerHTML = data.count
+          }
+          
         });
 
     });
@@ -28,10 +38,17 @@ $(document).ready(function(){
         function(data,status){
           console.log(status);
           console.log(data)
-          document.getElementById("dislike_count").innerHTML = data.count
+          if(data.count == "")
+          {
+            Swal.fire(
+              'Please Sign In',
+              'To vote, comment, and upload, you will need to sign in.',
+              'error'
+            )
+          }else{
+            document.getElementById("dislike_count").innerHTML = data.count
+          }
         });
 
       });
-
-
   });
