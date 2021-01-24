@@ -37,6 +37,10 @@ while ($row = $result->fetch_assoc()) {
     $sitemap->add('https://flag.riverside.rocks/watch/' . $user, $time);
 }
 
+$sitemap->add('https://flag.riverside.rocks/account/home' . $user, $time);
+$sitemap->add('https://flag.riverside.rocks/account/settings' . $user, $time);
+$sitemap->add('https://flag.riverside.rocks/account/videos' . $user, $time);
+
 
 header ('Content-Type:text/xml');
 echo $sitemap->toString();
