@@ -118,7 +118,7 @@ echo "const video = '${video}';"
   </p>
 </video>
 <div style="display:inline;">
-<button class="btn btn-primary" type="button"><i class="fas fa-thumbs-up" id="like"></i><p id="like_count">?</p></button><button class="btn btn-primary" type="button"><i class="fas fa-thumbs-down" id="dislike"></i><p id="dislike_count">?</p></button>
+<button class="btn btn-primary" type="button" style="margin-left:10px"><i class="fas fa-thumbs-up" id="like"></i><p id="like_count">?</p></button><button class="btn btn-primary" type="button" style="margin-left:10px"><i class="fas fa-thumbs-down" id="dislike"></i><p id="dislike_count">?</p></button>
 </div>
 <?php echo "<br><h2>" . $title . "</h2>"; ?>
 <?php echo "<p>" . $new_views . " views - Uploaded ${final}</p>"; ?>
