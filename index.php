@@ -23,19 +23,6 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-function base64_rand($amm)
-{   
-    $base = "A";
-    for ($amm1 = 0; $amm1 <= $amm; $amm1++) {
-        $number1 = rand(1,62);
-        $number2 = $number1 - 1;
-        $chars = "1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM_-";
-        $letter = substr($chars, $number2, $number1);
-        $base .= $letter[0];
-    }
-    return $base;
-}
-
 $router = new \Bramus\Router\Router();
 
 $router->get('/', function() {
@@ -114,6 +101,10 @@ $router->get('/top', function() {
     require "server/top.php";
 });
 
+$router->get('/reset', function() {
+    require "server/reset.php";
+});
+
 $router->mount('/account', function () use ($router) {
     $router->get('/', function () {
         die(header("Location: /account/home"));
@@ -175,6 +166,9 @@ $router->mount('/api/v1', function () use ($router) {
     });
     $router->get('/votes', function () {
         require "api/getVotes.php";
+    });
+    $router->post('/reset', function () {
+        require "api/reset.php";
     });
 });
 
