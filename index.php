@@ -85,6 +85,10 @@ $router->get('/user/(\w+)', function($useri){
     require "server/user.php";
 });
 
+$router->get('/login/reset', function($useri){
+    require "server/reset-conf.php";
+});
+
 $router->post('/upload', function() {
     require "server/upload-service.php";
 });
@@ -169,6 +173,9 @@ $router->mount('/api/v1', function () use ($router) {
     });
     $router->post('/reset', function () {
         require "api/reset.php";
+    });
+    $router->post('/password', function () {
+        require "api/password-reset.php";
     });
 });
 
