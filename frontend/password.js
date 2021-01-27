@@ -1,4 +1,7 @@
-var password = document.getElementById("new").value;
+
+function submit()
+{
+  var password = document.getElementById("new").value;
 
 if(password == "")
 {
@@ -30,3 +33,4 @@ if(password == "")
         }
     }
     )}
+}
