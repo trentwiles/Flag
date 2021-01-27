@@ -85,7 +85,7 @@ $router->get('/user/(\w+)', function($useri){
     require "server/user.php";
 });
 
-$router->get('/login/reset', function($useri){
+$router->get('/login/reset', function(){
     require "server/reset-conf.php";
 });
 
