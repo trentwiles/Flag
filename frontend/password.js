@@ -1,36 +1,36 @@
 
-function submit()
+function submit(email)
 {
-  var password = document.getElementById("new").value;
+      var password = document.getElementById("new").value;
 
-if(password == "")
-{
-    Swal.fire(
-        'Error!',
-        'Something went wrong. Please provide a password.',
-        'error'
-      )
-}else{
-    $.post("/api/v1/password",
+    if(password == "")
     {
-      password: password,
-      token: token
-    },
-    function(data,status){
-        if(data.success == "true")
+        Swal.fire(
+            'Error!',
+            'Something went wrong. Please provide a password.',
+            'error'
+          )
+    }else{
+        $.post("/api/v1/password",
         {
-            Swal.fire(
-                'Password Changed',
-                'Your password has been changed. Care to <a href="/login/">login?</a>',
-                'success'
-              )
-        }else{
-            Swal.fire(
-                'Something went wrong',
-                data.message,
-                'error'
-              )
+          password: password,
+          token: token
+        },
+        function(data,status){
+            if(data.success == "true")
+            {
+                Swal.fire(
+                    'Password Changed',
+                    'Your password has been changed. Care to <a href="/login/">login?</a>',
+                    'success'
+                  )
+            }else{
+                Swal.fire(
+                    'Something went wrong',
+                    data.message,
+                    'error'
+                  )
+            }
         }
-    }
-    )}
+        )}
 }
