@@ -41,7 +41,7 @@ while ($row = $result->fetch_assoc()) {
 
 if(!$user)
 {
-    die(json_encode(array("success" => "false", "message" => "Invalid auth token")));
+    die(json_encode(array("success" => "false", "message" => "Invalid auth token (bad email)")));
 }
 
 $len = $_POST["password"];
