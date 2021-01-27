@@ -1,5 +1,7 @@
 <?php
 
+include "header.php";
+
 $servername = $_ENV['MYSQL_SERVER'];
 $username = $_ENV["MYSQL_USERNAME"];
 $password = $_ENV["MYSQL_PASSWORD"];
