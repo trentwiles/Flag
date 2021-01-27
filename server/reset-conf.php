@@ -50,9 +50,11 @@ echo "</script>";
 
 echo "<h2>Reseting password for ${user}</h2>";
 ?>
+<form action="/api/v1/password" method="post" class="w-400 mw-full">
   <div class="form-group">
     <label for="new" class="required">New Password</label>
     <input type="password" name="new" class="form-control" id="new" value='' placeholder="" required="required">
   </div>
-  <button onclick="submit('<?php echo $email; ?>')" href="#">Change Password</button>
-<script src="/frontend/password.js"></script>
+  <script src="/frontend/password.js"></script>
+  <button onclick="submit('<?php echo $email; ?>')" href="#">Change Password</a>
+</form>
