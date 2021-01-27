@@ -11,6 +11,5 @@ $val
     <label for="email" class="required">Email</label>
     <input type="text" name="email" class="form-control" id="email" value='' placeholder="Username" required="required">
   </div>
-  <div class="h-captcha" data-sitekey="80228737-9c23-4e37-a270-2cc47cca9fbe"></div>
   <input class="btn btn-primary btn-block" type="submit" value="Reset My Password">
 </form>
