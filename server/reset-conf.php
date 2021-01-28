@@ -52,9 +52,12 @@ echo "<h2>Reseting password for ${user}</h2>";
 ?>
 <form action="/api/v1/password" method="post" class="w-400 mw-full">
   <div class="form-group">
-    <label for="new" class="required">New Password</label>
-    <input type="password" name="new" class="form-control" id="new" value='' placeholder="" required="required">
+    <label for="password" class="required">New Password</label>
+    <input type="password" name="password" class="form-control" id="password" value='' placeholder="" required="required">
   </div>
-  <script src="/frontend/password.js"></script>
-  <button onclick="submit('<?php echo $email; ?>')" href="#">Change Password</a>
+  <div class="form-group">
+    <label for="token" class="required">Token</label>
+    <input type="password" name="token" class="form-control" id="token" value='<?php echo $token; ?>' placeholder="" required="required">
+  </div>
+  <input class="btn btn-primary" type="submit" value="Submit">
 </form>

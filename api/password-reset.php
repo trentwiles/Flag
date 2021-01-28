@@ -44,7 +44,7 @@ if(!$user)
     die(json_encode(array("success" => "false", "message" => "Invalid auth token (bad email)")));
 }
 
-$len = $_POST["password"];
+$len = strlen($_POST["password"]);
 
 if($len < 4)
 {
@@ -63,4 +63,6 @@ $stmt = $conn->prepare($sql);
 $stmt->bind_param("s", $_POST["token"]);
 $stmt->execute();
 
-die(json_encode(array("success" => "true", "message" => "OK")));
+//die(json_encode(array("success" => "true", "message" => "OK")));
+header("Location: /login/");
+die();
