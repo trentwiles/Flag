@@ -128,6 +128,9 @@ $router->mount('/account', function () use ($router) {
     $router->get('/videos', function() {
         require "server/account-videos.php";
     });
+    $router->get('/live', function() {
+        require "server/live.php";
+    });
     $router->get('/edit/(\w+)', function($video_id) {
         require "server/account-edit.php";
     });
