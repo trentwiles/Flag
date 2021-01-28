@@ -29,3 +29,7 @@ echo "<script>const user = '${user}';</script>";
 <button class="btn btn-success" type="button" onclick="live(user);">Begin Stream</button>
 <br>
 <p id="status"></p>
+<br>
+<div id="live">
+
+</div>
