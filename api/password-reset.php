@@ -60,7 +60,8 @@ $stmt->execute();
 
 $sql = "DELETE FROM tokens WHERE token=?";
 $stmt = $conn->prepare($sql); 
-$stmt->bind_param("s", $_POST["token"]);
+$tokens = $_POST["token"];
+$stmt->bind_param("s", $tokens);
 $stmt->execute();
 
 //die(json_encode(array("success" => "true", "message" => "OK")));
