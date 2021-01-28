@@ -14,6 +14,9 @@ function live(username)
         }
     });
     setTimeout(function(){ 
+        console.log("wait")
+    }, 3000);
+    setTimeout(function(){ 
         document.getElementById("status").innerHTML = "Preparing to send data to RTC server..."
      }, 3000);
      async function connect(ev) {
