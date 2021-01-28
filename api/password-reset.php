@@ -58,7 +58,7 @@ $stmt = $conn->prepare($sql);
 $stmt->bind_param("ss", $secure_pass, $email);
 $stmt->execute();
 
-$sql = "DELETE FROM tokens WHERE token=?";
+$sql = "DELETE FROM resets WHERE token=?";
 $stmt = $conn->prepare($sql); 
 $tokens = $_POST["token"];
 $stmt->bind_param("s", $tokens);
