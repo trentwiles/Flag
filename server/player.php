@@ -117,10 +117,7 @@ echo "const video = '${video}';"
     </a>
   </p>
 </video>
-<div style="display:inline;">
-<button class="btn btn-primary" type="button" style="margin-left:10px"><i class="fas fa-thumbs-up" id="like"></i><p id="like_count">?</p></button><button class="btn btn-primary" type="button" style="margin-left:10px"><i class="fas fa-thumbs-down" id="dislike"></i><p id="dislike_count">?</p></button>
-</div>
-<?php echo "<br><h2>" . $title . "</h2>"; ?>
+<?php echo "<br><h2>" . $title . "</h2>"; ?> <button class="btn btn-primary" type="button" style="margin-left:10px"><i class="fas fa-thumbs-up" id="like"></i><p id="like_count">?</p></button><button class="btn btn-primary" type="button" style="margin-left:10px"><i class="fas fa-thumbs-down" id="dislike"></i><p id="dislike_count">?</p></button>
 <?php echo "<p>" . $new_views . " views - Uploaded ${final}</p>"; ?>
 <hr>
 <div class="desc" width="60%">
