@@ -160,7 +160,7 @@ if(!$_SESSION["username"])
     while ($row = $result->fetch_assoc()) {
         if(isset($row["reason"]))
         {
-            die("<br><h1>Account Suspended</h1><br><p>" . htmlspecialchars($row["reason"]) . "</p><button href='mailto:support@riverside.rocks' class='btn btn-secondary' type='button'>Appeal</button><br><button href='/account/signout' class='btn btn-primary' type='button'>Log out</button>");
+            die("<br><h1>Account Suspended</h1><br><p>" . htmlspecialchars($row["reason"]) . "</p><a href='mailto:support@riverside.rocks' class='btn btn-secondary' type='button'>Appeal</button><br /><br /><a href='/account/signout' class='btn btn-primary' type='button'>Log out</button>");
         }else{
             echo "<!-- not suspended -->";
         }
