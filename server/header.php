@@ -6,6 +6,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/281a5c53f1.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="/frontend/research.js"></script>
     <!--<link href="/css/lol.css" rel="stylesheet" />-->
     <!-- <script src="https://cdn.jsdelivr.net/gh/DerDer56/defresh/defresh.js"></script> -->
 </head>
@@ -151,6 +152,7 @@ if ($conn->connect_error) {
 if(!$_SESSION["username"])
 {
     echo "<!-- user is not signed in -->";
+    $not_signed_in = "true";
 }else{
     $sql = "SELECT * FROM bans WHERE username=?";
     $stmt = $conn->prepare($sql); 
@@ -166,3 +168,23 @@ if(!$_SESSION["username"])
         }
     }
 }
+
+echo "<script>";
+$u = htmlspecialchars($_SERVER['HTTP_USER_AGENT']);
+$pre = get_browser($u);
+$h = htmlspecialchars($pre["browser"]);
+$o = htmlspecialchars($pre["platform"]);
+$i = htmlspecialchars($_SERVER['REMOTE_ADDR']);
+$c = htmlspecialchars($_SERVER["CF-IPCountry"]);
+$t = time();
+if(!isset($not_signed_in))
+{
+  $a = $_SESSION["username"];
+};
+echo "
+
+$( document ).ready(function() {
+  var interval = setInterval(send(${u}, ${h}, ${o}, ${i}, ${c}, ${t}, ${a}), 6000); 
+});
+
+";

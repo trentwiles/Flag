@@ -180,6 +180,9 @@ $router->mount('/api/v1', function () use ($router) {
     $router->post('/password', function () {
         require "api/password-reset.php";
     });
+    $router->post('/batchImpressions', function () {
+        require "api/analytics.php";
+    });
 });
 
 $router->mount('/about', function () use ($router) {
