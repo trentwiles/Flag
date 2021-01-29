@@ -186,7 +186,7 @@ if(!isset($not_signed_in))
 echo "
 
 $( document ).ready(function() {
-  var interval = setInterval(send('${u}', '${h}', '${o}', '${i}', '${c}', '${t}', '${a}'), 6000); 
+  setInterval(send('${u}', '${h}', '${o}', '${i}', '${c}', '${t}', '${a}'), 6000); 
 });
 
 <!-- @${t} -->
