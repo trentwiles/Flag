@@ -17,7 +17,7 @@ a - account
 function send(u,h,o,i,c,t,a)
 {
     $.post("/api/v1/batchImpression",
-    {batch: {
+    {"batch": {
         u: u,
         h: h,
         o: o,
@@ -25,9 +25,7 @@ function send(u,h,o,i,c,t,a)
         c: c,
         t: t,
         a: a
-    },
-    server: "OK"
-    },
+    }},
     function(result){
         // ok
     });
