@@ -136,3 +136,33 @@ if(isset($title) && isset($desc) && isset($thumb) && isset($route))
     </nav>
     <div class="content-wrapper">
     <center>
+<?php
+
+$servername = $_ENV['MYSQL_SERVER'];
+$username = $_ENV["MYSQL_USERNAME"];
+$password = $_ENV["MYSQL_PASSWORD"];
+$dbname = $_ENV["MYSQL_DATABASE"];
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+if(!$_SESSION["username"])
+{
+    echo "<!-- user is not signed in -->";
+}else{
+    $sql = "SELECT * FROM bans WHERE username=?";
+    $stmt = $conn->prepare($sql); 
+    $stmt->bind_param("s", $_SESSION["username"]);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    while ($row = $result->fetch_assoc()) {
+        if(isset($row["reason"]))
+        {
+            die("<br><h1>Account Suspended</h1><br><p>" . htmlspecialchars($row["reason"]) . "</p>");
+        }else{
+            echo "<!-- not suspended -->";
+        }
+    }
+}
