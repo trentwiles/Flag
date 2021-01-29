@@ -175,16 +175,21 @@ $pre = get_browser($u);
 $h = htmlspecialchars($pre->browser);
 $o = htmlspecialchars($pre->platform);
 $i = htmlspecialchars($_SERVER['REMOTE_ADDR']);
-$c = htmlspecialchars($_SERVER["CF-IPCountry"]);
+$c = htmlspecialchars($_SERVER["HTTP_CF_IPCOUNTRY"]);
 $t = time();
 if(!isset($not_signed_in))
 {
   $a = $_SESSION["username"];
-};
+}else{
+  $a = '0';
+}
 echo "
 
 $( document ).ready(function() {
   var interval = setInterval(send('${u}', '${h}', '${o}', '${i}', '${c}', '${t}', '${a}'), 6000); 
 });
 
+<!-- @${t} -->
+
+</script>
 ";
