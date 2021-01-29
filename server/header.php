@@ -172,8 +172,8 @@ if(!$_SESSION["username"])
 echo "<script>";
 $u = htmlspecialchars($_SERVER['HTTP_USER_AGENT']);
 $pre = get_browser($u);
-$h = htmlspecialchars($pre["browser"]);
-$o = htmlspecialchars($pre["platform"]);
+$h = htmlspecialchars($pre->browser);
+$o = htmlspecialchars($pre->platform);
 $i = htmlspecialchars($_SERVER['REMOTE_ADDR']);
 $c = htmlspecialchars($_SERVER["CF-IPCountry"]);
 $t = time();
