@@ -11,6 +11,22 @@ require __DIR__ . "/vendor/autoload.php";
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
+
+
+/**
+ * 
+ * 
+ * IMPORTANT CONFIGURATION, SET THIS UP BEFORE RUNNING FLAG!
+ * 
+ * 
+ * 
+ * 
+ */
+
+//define("upload_dir", )
+
+
+
 if (isset($_SERVER['HTTP_CF_CONNECTING_IP'])) $_SERVER['REMOTE_ADDR'] = $_SERVER['HTTP_CF_CONNECTING_IP'];
 
 $servername = $_ENV['MYSQL_SERVER'];
