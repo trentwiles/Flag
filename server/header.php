@@ -148,7 +148,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-
+/*
 if(!$_SESSION["username"])
 {
     echo "<!-- user is not signed in -->";
@@ -168,7 +168,7 @@ if(!$_SESSION["username"])
         }
     }
 }
-
+*/
 echo "<script>";
 $u = htmlspecialchars($_SERVER['HTTP_USER_AGENT']);
 $pre = get_browser($u);
