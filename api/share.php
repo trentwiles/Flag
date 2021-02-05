@@ -23,4 +23,5 @@ $headers = array('User-agent' => 'FlagVideo ' . version);
 $request = Requests::get('https://rocks.pog.rs/api/v2/action/shorten?key=' . $_ENV["POLR_API"] . "&url=https://flag.riverside.rocks/watch/" . $_GET["id"] . "&is_secret=false", $headers);
 
 $api = json_decode($request->body, true);
+die(print_r($api));
 die(json_encode(array("success" => "true", "url" => $api["result"])));

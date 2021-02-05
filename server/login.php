@@ -48,6 +48,8 @@ while ($row = $result->fetch_assoc()) {
 <br>
 <a href="/reset/">Forgot your password?</a>
 <br>
+<a href="/signup/">Need an account?</a>
+<br>
 <?php
 
 if($_GET["badpassword"])
