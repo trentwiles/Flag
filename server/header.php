@@ -88,7 +88,7 @@ if(isset($title) && isset($desc) && isset($thumb) && isset($route))
       <?php
       if(!isset($_SESSION["username"]))
       {
-          echo "<form class='form-inline d-none d-md-flex ml-auto' action='/signup' method='get'>";
+          echo "<form class='form-inline d-none d-md-flex ml-auto' action='/login' method='get'>";
           echo '<input type="text" name="username" class="form-control" placeholder="Create a username" required="required">';
           echo '<button class="btn btn-primary" type="submit">Sign up/Log in</button>';
           echo '</form>';
@@ -117,7 +117,7 @@ if(isset($title) && isset($desc) && isset($thumb) && isset($route))
             <?php
             if(!isset($_SESSION["username"]))
             {
-                echo "<form action='/signup' method='get'>";
+                echo "<form action='/login' method='get'>";
                 echo '<div class="form-group"><input type="text" class="form-control" placeholder="Create a username" required="required"></div>';
                 echo '<button class="btn btn-primary btn-block" type="submit">Sign up/Log in</button>';
                 echo '</form>';
@@ -148,7 +148,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-/*
+
 if(!$_SESSION["username"])
 {
     echo "<!-- user is not signed in -->";
@@ -168,7 +168,7 @@ if(!$_SESSION["username"])
         }
     }
 }
-*/
+
 echo "<script>";
 $u = htmlspecialchars($_SERVER['HTTP_USER_AGENT']);
 $pre = get_browser($u);
