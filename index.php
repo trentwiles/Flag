@@ -12,6 +12,8 @@ $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
 
+define("version", "BETA-0.1");
+
 
 /**
  * 
@@ -198,6 +200,9 @@ $router->mount('/api/v1', function () use ($router) {
     });
     $router->post('/batchImpressions', function () {
         require "api/analytics.php";
+    });
+    $router->get('/share', function () {
+        require "api/share.php";
     });
 });
 
