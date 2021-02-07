@@ -149,7 +149,7 @@ $result = $stmt->get_result();
 $c = 0;
 while ($row = $result->fetch_assoc()) {
     $c++;
-    echo "<br><h5><a href='/user/" . $row["username"] . "'>" . $row["username"] . "</a> -" . $row["comment"] . "</h5><hr>";
+    echo "<br><h5><a href='/user/" . $row["username"] . "'>" . $row["username"] . "</a> - " . $row["comment"] . "</h5><hr>";
 }
 $next = $limit + 5;
 if($c == $limit || $c > $limit)
