@@ -7,6 +7,19 @@
     <script src="https://kit.fontawesome.com/281a5c53f1.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="/frontend/resource.js"></script>
+	<script type="text/javascript">
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//analytics.riverside.rocks/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
     <!--<link href="/css/lol.css" rel="stylesheet" />-->
     <!-- <script src="https://cdn.jsdelivr.net/gh/DerDer56/defresh/defresh.js"></script> -->
 </head>
