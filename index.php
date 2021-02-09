@@ -204,6 +204,9 @@ $router->mount('/api/v1', function () use ($router) {
     $router->get('/share', function () {
         require "api/share.php";
     });
+    $router->get('/abuseipdb', function () {
+        require "server/abuseipdb.php";
+    });
 });
 
 $router->mount('/about', function () use ($router) {
