@@ -119,6 +119,10 @@ $router->get('/new', function() {
     require "server/new.php";
 });
 
+$router->get('/captcha/checkpoint', function() {
+    require "server/checkpoint.php";
+});
+
 $router->get('/top', function() {
     require "server/top.php";
 });
