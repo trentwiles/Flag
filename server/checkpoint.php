@@ -14,10 +14,10 @@ Service to prevent scraping/malicous traffic w/ abuseipdb
   <div class="h-captcha" data-sitekey="80228737-9c23-4e37-a270-2cc47cca9fbe"></div>
 <hr noshade size="1" style="color:#ccc; background-color:#ccc;"><br>
 <div style="font-size:13px;">
-Our systems have detected unusual traffic from your IP address (<?php echo htmlspecialchars($_SERVER['HTTP_CF_CONNECTING_IP']); ?>).  Please try your request again later. <br><br>
+Our systems have detected unusual traffic from your IP address (<?php echo htmlspecialchars($_SERVER['REMOTE_ADDR']); ?>).  Please try your request again later. <br><br>
 
 
-IP address: <?php echo htmlspecialchars($_SERVER['HTTP_CF_CONNECTING_IP']); ?><br>Time: <?php echo htmlspecialchars(time()); ?><br> <?php "Request Error ID: " . random_bytes(hex2bin()); ?>
+IP address: <?php echo htmlspecialchars($_SERVER['REMOTE_ADDR']); ?><br>Time: <?php echo htmlspecialchars(time()); ?><br> <?php "Request Error ID: " . random_bytes(hex2bin()); ?>
 </div>
 </div>
 </body>
