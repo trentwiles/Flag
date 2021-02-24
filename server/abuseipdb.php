@@ -15,3 +15,7 @@ $client = new GuzzleHttp\Client([
   ]);
   
   $output = $response->getBody();
+
+  $f = fopen("cache.json", "w") or die("Failed to open file");
+  fwrite($f, $output);
+  fclose($f);
