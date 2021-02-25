@@ -13,8 +13,9 @@ Service to prevent scraping/malicous traffic w/ abuseipdb
   <script src="https://www.hCaptcha.com/1/api.js" async defer></script>
   <div class="h-captcha" data-sitekey="80228737-9c23-4e37-a270-2cc47cca9fbe"></div>
 <hr noshade size="1" style="color:#ccc; background-color:#ccc;"><br>
-  <h5>About this page</h5>
-<div style="font-size:13px;">
+  <div style="font-size:13px;">
+
+  <b>About this page</b><br><br>
 Our systems have detected unusual traffic from your computer network.  Please try your request again later. <br><br>
 
 
