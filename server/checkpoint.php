@@ -16,7 +16,7 @@ Service to prevent scraping/malicous traffic w/ abuseipdb
   <div style="font-size:13px;">
 
   <b>About this page</b><br><br>
-Our systems have detected unusual traffic from your computer network.  Please try your request again later. This may happen when a device on your network has been compromised.<br><br>
+Our systems have detected unusual traffic from your computer network. This may happen when a device on your network has been compromised. Please complete the captcha above to continue.<br><br>
 
 
 IP address: <?php echo htmlspecialchars($_SERVER['REMOTE_ADDR']); ?><br>Time: <?php echo htmlspecialchars(time()); ?><br> <?php "Request Error ID: " . random_bytes(hex2bin()); ?>
