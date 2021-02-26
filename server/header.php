@@ -97,7 +97,6 @@ if(isset($title) && isset($desc) && isset($thumb) && isset($route))
         <li class="nav-item">
           <a href="/about/" class="nav-link">About</a>
         </li>
-      </ul>
       <?php
       if(!isset($_SESSION["username"]))
       {
@@ -114,6 +113,7 @@ if(isset($title) && isset($desc) && isset($thumb) && isset($route))
         ";
       }
       ?>
+	</ul>
         
       <div class="navbar-content d-md-none ml-auto"> <!-- d-md-none = display: none on medium screens and up (width > 768px), ml-auto = margin-left: auto -->
         <div class="dropdown with-arrow">
