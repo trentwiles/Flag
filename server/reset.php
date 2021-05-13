@@ -1,7 +1,7 @@
 <?php
 include "header.php";
 
-$val 
+$val
 
 ?>
 
@@ -13,3 +13,6 @@ $val
   </div>
   <input class="btn btn-primary btn-block" type="submit" value="Reset My Password">
 </form>
+
+<?php
+include "footer.php";

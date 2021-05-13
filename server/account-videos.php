@@ -1,4 +1,4 @@
-<?php 
+<?php
 include "header.php";
 
 if(! $_SESSION["username"])
@@ -32,44 +32,43 @@ if($_GET["sort"] == "new")
 }
 
 $stmt = $conn->prepare($sql);
-$authed_user = $_SESSION["username"]; 
+$authed_user = $_SESSION["username"];
 $stmt->bind_param("s", $authed_user);
 $stmt->execute();
 $result = $stmt->get_result();
 
-echo '<table class="table">';
-echo '  <thead><tr>';
-echo '      <th>Title</th>
-<th>Video ID</th><th class="text-right">Views</th></tr>';
-
-while ($row = $result->fetch_assoc()) {
-    $title = $row["v_title"];
-    $vid = $row["v_id"];
-/*
-
-    $sql = "SELECT * FROM stat WHERE id=?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("s", $vid);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    while ($row = $result->fetch_assoc()) {
-        $views = $row["views"];
-        break;
-    }
-    */
-    echo "<script>getViews(${vid});</script>";
-    echo '  <tbody>
-    <tr>';
-    echo "<th>${title}</th>";
-    echo "<th>${vid}</th>";
-    echo "<th><a href='/account/edit/${vid}' target='_blank'><button class='btn btn-primary' type='button'>Edit</button></a></th>";
-    echo "<th id='${vid}'>n/a</th>";
-    echo "</tr></tbody>";
-}
-
 ?>
-
-<div class="btn-group" role="group" aria-label="Change">
-  <a href="?sort=new"><button class="btn" type="button">Sort by new</button></a>
-  <a href="?sort=old"><button class="btn" type="button">Sort by old</button></a>
+<div class="container">
+  <br>
+  <div class="btn-group" role="group" aria-label="Change">
+    <a href="?sort=new"><button class="btn" type="button">Sort by new</button></a>
+    <a href="?sort=old"><button class="btn" type="button">Sort by old</button></a>
+  </div>
+  <br>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Video ID</th>
+        <th>Edit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php
+      while ($row = $result->fetch_assoc()) {
+          $title = $row["v_title"];
+          $vid = $row["v_id"];
+      ?>
+        <tr>
+          <th><?php echo $title; ?></th>
+          <th><?php echo $vid ?></th>
+          <th><a href="/account/edit/<?php echo $vid ?>" class="btn">Edit</a></th>
+        </tr>
+      <?php } ?>
+    </tbody>
+  </table>
 </div>
+<br>
+<?php
+include 'footer.php';
+?>

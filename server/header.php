@@ -1,10 +1,19 @@
+<?php
+if ($_ENV["DEBUG"] == "true") {
+  ini_set('display_errors', 1);
+  ini_set('display_startup_errors', 1);
+} else {
+  ini_set('display_errors', 0);
+  ini_set('display_startup_errors', 0);
+}
+?>
 <!DOCTYPE html>
 <head>
-    
-    <link href="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/css/halfmoon-variables.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/js/halfmoon.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/281a5c53f1.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="/frontend/resource.js"></script>
 	<script type="text/javascript">
@@ -71,87 +80,23 @@ if(isset($title) && isset($desc) && isset($thumb) && isset($route))
 
 <body onload="halfmoon.toggleDarkMode()">
   <div class="page-wrapper with-navbar">
-    <nav class="navbar">
-      <div class="navbar-content">
-          <!--
-
-        <button class="btn btn-action" type="button">
-          <i class="fa fa-bars" aria-hidden="true"></i>
-          <span class="sr-only">Menu</span>
-          
-          -->
-
-        </button>
-      </div>
-      <a href="/" class="navbar-brand">
-        Flag
-      </a>
-      <span class="navbar-text text-monospace">Beta</span>
-      <ul class="navbar-nav d-none d-md-flex">
-        <li class="nav-item">
-          <a href="/top" class="nav-link">Top</a>
-        </li>
-        <li class="nav-item">
-          <a href="/new" class="nav-link">New</a>
-        </li>
-        <li class="nav-item">
-          <a href="/about/" class="nav-link">About</a>
-        </li>
-      <?php
-      if(!isset($_SESSION["username"]))
-      {
-          echo "<form class='form-inline d-none d-md-flex ml-auto' action='/login' method='get'>";
-          echo '<input type="text" name="username" class="form-control" placeholder="Create a username" required="required">';
-          echo '<button class="btn btn-primary" type="submit">Sign up/Log in</button>';
-          echo '</form>';
-      }else{
-        echo 
-        "
-        <li class='nav-item'>
-          <a href='/account/home' class='nav-link'> " . $_SESSION["username"] . "</a>
-        </li>
-        ";
-      }
-      ?>
-	</ul>
-        
-      <div class="navbar-content d-md-none ml-auto"> <!-- d-md-none = display: none on medium screens and up (width > 768px), ml-auto = margin-left: auto -->
-        <div class="dropdown with-arrow">
-          <button class="btn" data-toggle="dropdown" type="button" id="navbar-dropdown-toggle-btn-1">
-            Menu
-            <i class="fa fa-angle-down" aria-hidden="true"></i>
-          </button>
-          <div class="dropdown-menu dropdown-menu-right w-200" aria-labelledby="navbar-dropdown-toggle-btn-1"> <!-- w-200 = width: 20rem (200px) -->
-            <a href="/top" class="dropdown-item">Top</a>
-            <a href="/new" class="dropdown-item">New</a>
-            <a href="/new" class="dropdown-item">About</a>
-            <div class="dropdown-divider"></div>
-            <div class="dropdown-content">
-            <?php
-            if(!isset($_SESSION["username"]))
-            {
-                echo "<form action='/login' method='get'>";
-                echo '<div class="form-group"><input type="text" class="form-control" placeholder="Create a username" required="required"></div>';
-                echo '<button class="btn btn-primary btn-block" type="submit">Sign up/Log in</button>';
-                echo '</form>';
-            }else{
-                echo 
-                "
-                <li class='nav-item'>
-                <a href='/account/home' class='dropdown-item'> " . $_SESSION["username"] . "</a>
-                </li>
-                ";
-            }
-            ?>
-            </div>
-          </div>
-        </div>
-      </div>
+    <nav class="nav-wrapper">
+      <a href="/" class="brand-logo">Flag</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="/">Home</a></li>
+        <li><a href="/top">Top</a></li>
+        <li><a href="/new">New</a></li>
+        <?php
+        if(!isset($_SESSION["username"])) {
+            echo "<li><a href='/login' class='waves-effect waves-light btn'>Login</a></li>";
+        }else{
+          echo
+          "<li><a href='/account/home' class='nav-link'> " . $_SESSION["username"] . "</a></li>";
+        }
+        ?>
+      </ul>
     </nav>
-    <div class="content-wrapper">
-    <center>
 <?php
-
 $servername = $_ENV['MYSQL_SERVER'];
 $username = $_ENV["MYSQL_USERNAME"];
 $password = $_ENV["MYSQL_PASSWORD"];
@@ -168,7 +113,7 @@ if(!$_SESSION["username"])
     $not_signed_in = "true";
 }else{
     $sql = "SELECT * FROM bans WHERE username=?";
-    $stmt = $conn->prepare($sql); 
+    $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $_SESSION["username"]);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -199,7 +144,7 @@ if(!isset($not_signed_in))
 echo "
 
 $( document ).ready(function() {
-  setInterval(send('${u}', '${h}', '${o}', '${i}', '${c}', '${t}', '${a}'), 6000); 
+  setInterval(send('${u}', '${h}', '${o}', '${i}', '${c}', '${t}', '${a}'), 6000);
 });
 
 <!-- @${t} -->

@@ -26,7 +26,7 @@ if(isset($_POST["username"]) && $_POST["password"])
           die("Connection failed: " . $conn->connect_error);
       }
       $sql = "SELECT * FROM users WHERE `username`=?";
-      $stmt = $conn->prepare($sql); 
+      $stmt = $conn->prepare($sql);
       $stmt->bind_param("s", $_POST["username"]);
       $stmt->execute();
       $result = $stmt->get_result();
@@ -49,8 +49,8 @@ if(isset($_POST["username"]) && $_POST["password"])
           }
       }
   }else{
-      die(header("Location: /signup/?nopasswordmatch=1"));
+      die(header("Location: /login/?captcha=1"));
   }
 }else{
-    die(header("Location: /signup/"));
+    die(header("Location: /login/"));
 }

@@ -1,4 +1,4 @@
-<?php 
+<?php
 include "header.php";
 
 $servername = $_ENV['MYSQL_SERVER'];
@@ -18,18 +18,23 @@ if(!$_SESSION["username"])
 
 $user = $_SESSION["username"];
 ?>
-<h1>Live Dashboard</h1>
-<br>
-<?php
+<div class="container">
+  <h1>Live Dashboard</h1>
+  <br>
+  <?php
 
-echo "<script>const user = '${user}';</script>";
+  echo "<script>const user = '${user}';</script>";
 
-?>
-<script src="/frontend/live.js"></script>
-<button class="btn btn-success" type="button" onclick="live(user);">Begin Stream</button>
-<br>
-<p id="status"></p>
-<br>
-<div id="live">
+  ?>
+  <script src="/frontend/live.js"></script>
+  <button class="btn btn-success" type="button" onclick="live(user);">Begin Stream</button>
+  <br>
+  <p id="status"></p>
+  <br>
+  <div id="live">
 
+  </div>
 </div>
+<?php
+include "footer.php";
+?>

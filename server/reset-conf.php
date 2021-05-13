@@ -13,7 +13,7 @@ if ($conn->connect_error) {
 }
 
 $sql = "SELECT * FROM resets WHERE `token`=?";
-$stmt = $conn->prepare($sql); 
+$stmt = $conn->prepare($sql);
 $stmt->bind_param("s", $_GET["token"]);
 $stmt->execute();
 $result = $stmt->get_result();
@@ -27,7 +27,7 @@ if(!$email)
 }
 
 $sql = "SELECT * FROM users WHERE `email`=?";
-$stmt = $conn->prepare($sql); 
+$stmt = $conn->prepare($sql);
 $stmt->bind_param("s", $email);
 $stmt->execute();
 $result = $stmt->get_result();
@@ -42,22 +42,24 @@ if(!$user)
 
 $token = htmlspecialchars($_GET["token"]);
 
-echo "<script>";
-echo "/* dynamic js @" . time() . " */";
-echo "const email = '${email}';";
-echo "const tokem = '${token}';";
-echo "</script>";
-
-echo "<h2>Reseting password for ${user}</h2>";
 ?>
-<form action="/api/v1/password" method="post" class="w-400 mw-full">
-  <div class="form-group">
-    <label for="password" class="required">New Password</label>
-    <input type="password" name="password" class="form-control" id="password" value='' placeholder="" required="required">
+  <div class="container">
+    <h2><h2>Reseting password for <?php echo $user ?></h2></h2>
+    <form action="/api/v1/password" method="post" class="w-400 mw-full">
+      <div class="form-group">
+        <label for="password" class="required">New Password</label>
+        <input type="password" name="password" class="form-control" id="password" value='' placeholder="" required="required">
+      </div>
+      <div>
+        <input type="hidden" name="token" id="token" value='<?php echo $token; ?>' placeholder="" required="required">
+      </div>
+      <input class="btn btn-primary" type="submit" value="Submit">
+    </form>
   </div>
-  <div class="form-group">
-    <label for="token" class="required">Token</label>
-    <input type="password" name="token" class="form-control" id="token" value='<?php echo $token; ?>' placeholder="" required="required">
-  </div>
-  <input class="btn btn-primary" type="submit" value="Submit">
-</form>
+  <script>
+    /* dynamic js @ <?php echo time() ?> */
+    const email = "<?php echo $email ?>";
+    const tokem = "<?php echo $token ?>";
+  </script>
+<?php
+include "footer.php";

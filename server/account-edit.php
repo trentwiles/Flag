@@ -1,4 +1,4 @@
-<?php 
+<?php
 include "header.php";
 
 if(! $_SESSION["username"])
@@ -92,7 +92,7 @@ if(isset($_POST["title"]) && isset($_POST["description"]))
             die("<br><h2>Looks like you don't have access to this video or it doesn't exsist.</h2>");
         }
     }
-    
+
     $new_title = htmlspecialchars($_POST["title"]);
     $new_description = htmlspecialchars($_POST["description"]);
 
@@ -133,7 +133,7 @@ if(isset($_POST["title"]) && isset($_POST["description"]))
         try {
             $file->upload();
             $sql = "UPDATE `videos` SET `v_thumb`=? WHERE v_id=?";
-            $stmt = $conn->prepare($sql); 
+            $stmt = $conn->prepare($sql);
             $new_photo = "https://cdn.riverside.rocks/flag/" . $file->getNameWithExtension();
             $stmt->bind_param("ss", $new_photo, $video_id);
             $stmt->execute();
@@ -145,3 +145,7 @@ if(isset($_POST["title"]) && isset($_POST["description"]))
 }
 
 echo "<br><button class='btn btn-danger' type='button' onclick='areYouSure(${video_id});'>Delete Video</button>";
+
+include "<br>";
+
+include 'footer.php';

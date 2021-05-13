@@ -12,17 +12,17 @@ $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
 
-define("version", "BETA-0.1");
+define("version", "BETA-0.2");
 
 
 /**
- * 
- * 
+ *
+ *
  * IMPORTANT CONFIGURATION, SET THIS UP BEFORE RUNNING FLAG!
- * 
- * 
- * 
- * 
+ *
+ *
+ *
+ *
  */
 
 //define("upload_dir", )
@@ -217,6 +217,16 @@ $router->mount('/about', function () use ($router) {
     $router->get('/', function () {
         require "server/about.php";
     });
+});
+
+$router->get('/legal', function() {
+  require "server/legal.php";
+  $router->get('/privacy', function() {
+      require "server/legal-privacy.php";
+  });
+  $router->get('/tos', function() {
+      require "server/legal-tos.php";
+  });
 });
 
 $router->set404(function() {
